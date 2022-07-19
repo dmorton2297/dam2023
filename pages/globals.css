@@ -18,13 +18,14 @@
   height: 100vh;
   width: 100vw;
   position: fixed;
+  overflow-y: scroll;
 }
 
 .blob {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  margin: 20px;
-  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 15px;
+  border-radius: 2px;
 }
 
 .text-ease-in {
@@ -43,7 +44,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  background: #a5a4a4;
 }
 
 /* Color/shape of burger icon bars on hover*/

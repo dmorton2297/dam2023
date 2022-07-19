@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        serif: ['Ibarra Real Nova'],
+        sans: ['-apple-system, BlinkMacSystemFont, sans-serif'],
+        serif: ['\'Dancing Script\', cursive'],
       },
     },
   },

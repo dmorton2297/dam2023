@@ -2,8 +2,7 @@ export const Banner: React.FC = () => {
   return (
     <div className="blob">
       <h1
-        className="text-8xl text-center h-30 text-ease-in"
-        style={{ fontFamily: `\'Dancing Script\', cursive` }}
+        className="text-8xl font-serif text-center h-30 text-ease-in"
       >
         Celebrating
       </h1>

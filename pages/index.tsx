@@ -5,10 +5,10 @@ import { Carousel } from "react-responsive-carousel";
 import { useEffect, useState } from "react";
 import { Page } from "../components/Page";
 import { Banner } from "../components/Banner";
+import { HompageGrid } from "../components/HomepageGrid";
 
 const Home: NextPage = () => {
   const photoIds = [1, 2, 3, 4, 5, 6];
-  const [menuOpen, setMenuOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(photoIds[1]);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,20 +17,27 @@ const Home: NextPage = () => {
 
     return () => clearInterval(interval);
   });
-  
-  const blobclasses = 'p-2'
+
+  const blobclasses = "p-2";
   return (
     <Page
       title="Dan and Adriana 2023"
       description="Details on our upcoming wedding"
     >
       <>
-        <div className="full-screen-overlay" style={{ zIndex: 1 }}>
-          <Banner />
+        <div className="full-screen-overlay text-ease-in flex" style={{ zIndex: 1, justifyContent: "center"  }}>
+            <div style={{ width: 1366 }}>
+              <Banner />
+              <HompageGrid />
+            </div>
         </div>
 
         <div className="full-screen-overlay" style={{ zIndex: 0 }}>
-          <Carousel showThumbs={false} showArrows={false} selectedItem={currentPhoto - 1}>
+          <Carousel
+            showThumbs={false}
+            showArrows={false}
+            selectedItem={currentPhoto - 1}
+          >
             {[1, 2, 3, 4, 5, 6].map((x) => {
               return (
                 <div key={x}>
