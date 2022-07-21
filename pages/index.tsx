@@ -20,6 +20,8 @@ const Home: NextPage = () => {
     }
   }, []);
 
+  if (!windowHeight) return <></>;
+
   return (
     <Page
       title="Dan and Adriana 2023"
@@ -39,7 +41,8 @@ const Home: NextPage = () => {
           className="one h-full"
           style={{
             scrollSnapAlign: "start",
-            background: "url(3.jpeg)",
+            background:
+              windowHeight < 1100 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
             backgroundSize: "cover",
           }}
         ></section>
@@ -47,20 +50,20 @@ const Home: NextPage = () => {
           className="one h-full flex justify-center"
           style={{
             scrollSnapAlign: "start",
-            background: "url(2.jpeg)",
+            background:
+              windowHeight < 1100 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
             backgroundSize: "cover",
           }}
-        >
-        </section>
+        ></section>
         <section
           className="one h-full flex justify-center"
           style={{
             scrollSnapAlign: "start",
-            background: "url(1.jpeg)",
+            background:
+              windowHeight < 1100 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
             backgroundSize: "cover",
           }}
-        >
-        </section>
+        ></section>
       </div>
     </Page>
   );
