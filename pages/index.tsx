@@ -13,6 +13,12 @@ import { TheWedding } from "../components/TheWedding";
 const Home: NextPage = () => {
   const photoIds = [1, 2, 3, 4, 5, 6];
   const [currentPhoto, setCurrentPhoto] = useState(photoIds[1]);
+  const [windowHeight, setWindowHeight] = useState<number>()
+  useEffect(() => {
+    if (window) {
+      setWindowHeight(window.innerHeight);
+    }
+  }, [])
 
   return (
     <Page
@@ -20,11 +26,12 @@ const Home: NextPage = () => {
       description="Details on our upcoming wedding"
     >
       <div
-        className="scroll-container noscroll h-screen"
+        className="scroll-container noscroll w-full"
         style={{
           scrollSnapType: "y mandatory",
           overflowY: "scroll",
           overflowX: "hidden",
+          height: windowHeight || '100vh',
         }}
       >
         <Navigation />
