@@ -9,7 +9,7 @@ export const Menu: React.FC = () => {
       window.innerWidth < 1145 && setSkinny(true);
     }
   }, []);
-  if (!skinny) return;
+  if (!skinny) return <></>;
   return (
     <Slide width={300} pageWrapId="page-wrap" outerContainerId="outer">
       <Link id="home" className="p-8 menu-item" href="/">
