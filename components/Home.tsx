@@ -9,7 +9,7 @@ export const Home: React.FC = () => {
 }, [])
   return (
     <section
-      className="one h-screen"
+      className="one h-full"
       style={{
         scrollSnapAlign: "start",
         background: "url(3.jpeg)",

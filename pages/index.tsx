@@ -3,8 +3,8 @@ import type { NextPage } from "next";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useEffect, useState } from "react";
 import { Page } from "../components/Page";
-import { HompageGrid } from '../components/HomepageGrid';
-import { Home as HomePage } from '../components/Home';
+import { HompageGrid } from "../components/HomepageGrid";
+import { Home as HomePage } from "../components/Home";
 import { OurStory } from "../components/OurStory";
 import { Navigation } from "../components/Navigation";
 import { Wedding } from "../components/Wedding";
@@ -21,12 +21,16 @@ const Home: NextPage = () => {
     >
       <div
         className="scroll-container noscroll h-screen"
-        style={{ scrollSnapType: "y mandatory", overflowY: "scroll" }}
+        style={{
+          scrollSnapType: "y mandatory",
+          overflowY: "scroll",
+          overflowX: "hidden",
+        }}
       >
         <Navigation />
         <HomePage />
         <section
-          className="one h-screen flex justify-center"
+          className="one h-full flex justify-center"
           style={{
             scrollSnapAlign: "start",
             background: "url(2.jpeg)",
@@ -36,7 +40,7 @@ const Home: NextPage = () => {
           <OurStory />
         </section>
         <section
-          className="one h-screen flex justify-center"
+          className="one h-full flex justify-center"
           style={{
             scrollSnapAlign: "start",
             background: "url(1.jpeg)",
