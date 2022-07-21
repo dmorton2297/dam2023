@@ -6,17 +6,21 @@ export const OurStory: React.FC = () => {
 
   const split = content.split("\n");
   return (
-    <>
-      <p className="text-5xl font-serif">Our story</p>
-      {split.map((chunk) => (
-        <>
-          <p className="text-lg">{chunk}</p>
-          <br />
-        </>
-      ))}
-      <p className="text-lg">
-        <strong>We are thrilled to be married next year, on May 6th 2023.</strong>
-      </p>
-    </>
+    <div id="our-story" className="flex justify-end" style={{ flexDirection: 'column' }}>
+      <div className='blob' style={{ borderRadius: 30 }}>
+        <p className="text-5xl font-serif">Our story</p>
+        {split.map((chunk) => (
+          <>
+            <p className="text-lg">{chunk}</p>
+            <br />
+          </>
+        ))}
+        <p className="text-lg">
+          <strong>
+            We are thrilled to be married next year, on May 6th 2023.
+          </strong>
+        </p>
+      </div>
+    </div>
   );
 };
