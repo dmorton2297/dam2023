@@ -14,13 +14,16 @@ const Home: NextPage = () => {
   const photoIds = [1, 2, 3, 4, 5, 6];
   const [currentPhoto, setCurrentPhoto] = useState(photoIds[1]);
   const [windowHeight, setWindowHeight] = useState<number>();
+  const [windowWidth, setWindowWidth] = useState<number>();
+
   useEffect(() => {
     if (window) {
       setWindowHeight(window.innerHeight);
+      setWindowWidth(window.innerWidth);
     }
   }, []);
 
-  if (!windowHeight) return <></>;
+  if (!windowHeight || !windowWidth) return <></>;
 
   return (
     <Page
@@ -42,7 +45,7 @@ const Home: NextPage = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowHeight < 1100 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
+              windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
             backgroundSize: "cover",
           }}
         ></section>
@@ -51,7 +54,7 @@ const Home: NextPage = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowHeight < 1100 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
+            windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
             backgroundSize: "cover",
           }}
         ></section>
@@ -60,7 +63,7 @@ const Home: NextPage = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowHeight < 1100 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
+            windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
             backgroundSize: "cover",
           }}
         ></section>
