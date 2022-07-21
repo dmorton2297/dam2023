@@ -12,6 +12,10 @@
   }
 }
 
+body: {
+  overflow: hidden;
+}
+
 .full-screen-overlay {
   top: 0;
   bottom: 0;

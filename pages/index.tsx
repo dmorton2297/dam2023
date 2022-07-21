@@ -13,12 +13,12 @@ import { TheWedding } from "../components/TheWedding";
 const Home: NextPage = () => {
   const photoIds = [1, 2, 3, 4, 5, 6];
   const [currentPhoto, setCurrentPhoto] = useState(photoIds[1]);
-  const [windowHeight, setWindowHeight] = useState<number>()
+  const [windowHeight, setWindowHeight] = useState<number>();
   useEffect(() => {
     if (window) {
       setWindowHeight(window.innerHeight);
     }
-  }, [])
+  }, []);
 
   return (
     <Page
@@ -31,11 +31,18 @@ const Home: NextPage = () => {
           scrollSnapType: "y mandatory",
           overflowY: "scroll",
           overflowX: "hidden",
-          height: windowHeight || '100vh',
+          height: windowHeight || "100vh",
         }}
       >
         <Navigation />
-        <HomePage />
+        <section
+          className="one h-full"
+          style={{
+            scrollSnapAlign: "start",
+            background: "url(3.jpeg)",
+            backgroundSize: "cover",
+          }}
+        ></section>
         <section
           className="one h-full flex justify-center"
           style={{
@@ -44,7 +51,6 @@ const Home: NextPage = () => {
             backgroundSize: "cover",
           }}
         >
-          <OurStory />
         </section>
         <section
           className="one h-full flex justify-center"
@@ -54,7 +60,6 @@ const Home: NextPage = () => {
             backgroundSize: "cover",
           }}
         >
-          <TheWedding />
         </section>
       </div>
     </Page>
