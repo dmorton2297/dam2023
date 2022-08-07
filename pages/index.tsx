@@ -3,18 +3,15 @@ import type { NextPage } from "next";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useEffect, useState } from "react";
 import { Page } from "../components/Page";
-import { HompageGrid } from "../components/HomepageGrid";
-import { Home as HomePage } from "../components/Home";
-import { OurStory } from "../components/OurStory";
 import { Navigation } from "../components/Navigation";
-import { Wedding } from "../components/Wedding";
-import { TheWedding } from "../components/TheWedding";
+import gsap from "gsap";
 
 const Home: NextPage = () => {
   const photoIds = [1, 2, 3, 4, 5, 6];
   const [currentPhoto, setCurrentPhoto] = useState(photoIds[1]);
   const [windowHeight, setWindowHeight] = useState<number>();
   const [windowWidth, setWindowWidth] = useState<number>();
+  const [animationOccurred, setAnimationOccured] = useState(false);
 
   useEffect(() => {
     if (window) {
@@ -22,6 +19,27 @@ const Home: NextPage = () => {
       setWindowWidth(window.innerWidth);
     }
   }, []);
+
+  useEffect(() => {
+    if (!animationOccurred && document.getElementById("home-page-content")) {
+      const tl = gsap.timeline();
+      setAnimationOccured(true);
+      tl.to("#home-page-content", {
+        x: "-100vw",
+        y: "10vh",
+        fontSize: 80,
+        duration: 0,
+      });
+      tl.to("#home-page-content", {
+        x: "50vw - 100px",
+        y: "10vh",
+        ease: 'bounce',
+        fontSize: 80,
+        duration: 1.5,
+        stagger: 0.1,
+      });
+    }
+  });
 
   if (!windowHeight || !windowWidth) return <></>;
 
@@ -47,6 +65,50 @@ const Home: NextPage = () => {
             background:
               windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
             backgroundSize: "cover",
+            boxShadow: 'inset 0 0 0 100000px rgba(0,0,0,0.4)',
+
+            zIndex: 2
+          }}
+        >
+          <div
+            className="flex text-stone-50 "
+            style={{
+              flexDirection: "column",
+              position: 'absolute',
+            }}
+          >
+            <p
+              id="home-page-content"
+              style={{ width: 300 }}
+              className="font-serif"
+            >
+              Celebrating
+            </p>
+            <p
+              id="home-page-content"
+              style={{ width: 300 }}
+              className="font-serif"
+            >
+              Dan &
+            </p>
+
+            <p
+              id="home-page-content"
+              style={{ width: 300 }}
+              className="font-serif"
+            >
+              Adriana
+            </p>
+          </div>
+        </section>
+        <section
+          className="one h-full flex justify-center"
+          style={{
+            scrollSnapAlign: "start",
+            background:
+              windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
+            backgroundSize: "cover",
+            boxShadow: 'inset 0 0 0 100000px rgba(0,0,0,0.4)',
           }}
         ></section>
         <section
@@ -54,17 +116,9 @@ const Home: NextPage = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-            windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
+              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
             backgroundSize: "cover",
-          }}
-        ></section>
-        <section
-          className="one h-full flex justify-center"
-          style={{
-            scrollSnapAlign: "start",
-            background:
-            windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
-            backgroundSize: "cover",
+            boxShadow: 'inset 0 0 0 100000px rgba(0,0,0,0.4)',
           }}
         ></section>
       </div>

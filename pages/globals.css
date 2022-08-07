@@ -57,7 +57,7 @@ body {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #a5a4a4;
+  background: darkgray;
 }
 
 /* Color/shape of burger icon bars on hover*/

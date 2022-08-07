@@ -43,21 +43,21 @@ export const Navigation: React.FC = () => {
           style={{ borderRadius: "3", width: "90%" }}
         >
           <p
-            className="font-serif text-2xl text-stone-700 nav-item"
+            className="font-serif text-2xl text-stone-100 nav-item"
             style={{ marginTop: 45 }}
             onClick={() => handleClick("our-story")}
           >
             Our story
           </p>
           <p
-            className="font-serif text-2xl text-stone-700 nav-item"
+            className="font-serif text-2xl text-stone-100 nav-item"
             style={{ marginTop: 45 }}
             onClick={() => handleClick("the-wedding")}
           >
             Wedding
           </p>
           <p
-            className="font-serif text-2xl text-stone-700 nav-item"
+            className="font-serif text-2xl text-stone-100 nav-item"
             style={{ marginTop: 45 }}
           >
             Registry
