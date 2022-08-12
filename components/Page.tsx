@@ -13,6 +13,7 @@ export const Page: React.FC<{
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Menu />
       <div id="page-wrap">
         {children}
       </div>

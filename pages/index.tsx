@@ -40,8 +40,8 @@ const Home: NextPage = () => {
         stagger: 0.1,
       });
       tl.from("#test", {
-        background: 'transparent',
-        color: 'transparent',
+        background: "transparent",
+        color: "transparent",
         duration: 2,
       });
     }
@@ -99,51 +99,18 @@ const Home: NextPage = () => {
         >
           <div
             id="test"
-            className="mr-1 bg-yellow-400 text-stone-100 flex flex-col justify-center hover:bg-stone-400 cursor-pointer"
+            className="mr-1 bg-stone-400 text-stone-100 flex flex-col justify-center cursor-pointer hover:bg-red-600"
             onClick={() =>
               document.getElementById("react-burger-menu-btn")?.click()
             }
             style={{
-              width: 100,
-              borderRadius: 50,
+              width: 80,
+              height: 80,
+              borderRadius: 100,
             }}
           >
             <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
-              <Link href="/event">Details</Link>
-            </p>
-          </div>
-          <div
-            id="test"
-            className="mr-1 bg-blue-500 text-stone-100 flex flex-col justify-center hover:bg-stone-400 cursor-pointer"
-            onClick={() =>
-              document.getElementById("react-burger-menu-btn")?.click()
-            }
-            style={{
-              width: 100,
-              borderRadius: 50,
-            }}
-          >
-            <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
-              RSVP
-            </p>
-          </div>
-          <div
-            id="test"
-            className="bg-pink-400 text-stone-100 flex flex-col justify-center hover:bg-stone-400 cursor-pointer"
-            onClick={() =>
-              document.getElementById("react-burger-menu-btn")?.click()
-            }
-            style={{
-              width: 100,
-              borderRadius: 50,
-            }}
-          >
-            <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
-              <Link
-                href="https://registry.theknot.com/adriana-davila-dan-morton-september-2023-il/54359222"
-              >
-                Registry
-              </Link>
+              Details
             </p>
           </div>
         </div>
