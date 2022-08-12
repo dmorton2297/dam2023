@@ -33,11 +33,15 @@ const Home: NextPage = () => {
       tl.to("#home-page-content", {
         x: "50vw - 100px",
         y: "10vh",
-        ease: 'bounce',
+        ease: "bounce",
         fontSize: 80,
         duration: 1.5,
         stagger: 0.1,
       });
+      tl.from('#test', {
+        y: '200px',
+        duration: 2,
+      })
     }
   });
 
@@ -48,80 +52,107 @@ const Home: NextPage = () => {
       title="Dan and Adriana 2023"
       description="Details on our upcoming wedding"
     >
-      <div
-        className="scroll-container noscroll w-full"
-        style={{
-          scrollSnapType: "y mandatory",
-          overflowY: "scroll",
-          overflowX: "hidden",
-          height: windowHeight || "100vh",
-        }}
-      >
-        <Navigation />
-        <section
-          className="one h-full"
+      <>
+        <div
+          className="flex text-stone-50 "
           style={{
-            scrollSnapAlign: "start",
-            background:
-              windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
-            backgroundSize: "cover",
-            boxShadow: 'inset 0 0 0 100000px rgba(0,0,0,0.4)',
-
-            zIndex: 2
+            flexDirection: "column",
+            position: "absolute",
+            pointerEvents: 'none'
           }}
         >
-          <div
-            className="flex text-stone-50 "
-            style={{
-              flexDirection: "column",
-              position: 'absolute',
-            }}
+          <p
+            id="home-page-content"
+            style={{ width: 300 }}
+            className="font-serif"
           >
-            <p
-              id="home-page-content"
-              style={{ width: 300 }}
-              className="font-serif"
-            >
-              Celebrating
-            </p>
-            <p
-              id="home-page-content"
-              style={{ width: 300 }}
-              className="font-serif"
-            >
-              Dan &
-            </p>
+            Celebrating
+          </p>
+          <p
+            id="home-page-content"
+            style={{ width: 300 }}
+            className="font-serif"
+          >
+            Dan &
+          </p>
 
-            <p
-              id="home-page-content"
-              style={{ width: 300 }}
-              className="font-serif"
-            >
-              Adriana
-            </p>
-          </div>
-        </section>
-        <section
-          className="one h-full flex justify-center"
+          <p
+            id="home-page-content"
+            style={{ width: 300 }}
+            className="font-serif"
+          >
+            Adriana
+          </p>
+          <p
+            id="home-page-content"
+            style={{ width: 340 }}
+            className="font-serif"
+          >
+            March 13th, 2021
+          </p>
+        </div>
+        <div
+          id="test"
+          className="bg-stone-300 flex flex-col justify-center hover:bg-stone-400"
+          onClick={() =>
+            document.getElementById("react-burger-menu-btn")?.click()
+          }
           style={{
-            scrollSnapAlign: "start",
-            background:
-              windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
-            backgroundSize: "cover",
-            boxShadow: 'inset 0 0 0 100000px rgba(0,0,0,0.4)',
+            position: "absolute",
+            bottom: 30,
+            right: 30,
+            width: 100,
+            height: 100,
+            borderRadius: 50,
           }}
-        ></section>
-        <section
-          className="one h-full flex justify-center"
+        >
+          <p className="font-serif" style={{ alignSelf: "center" }}>
+            Details
+          </p>
+        </div>
+        <div
+          className="scroll-container noscroll w-full"
           style={{
-            scrollSnapAlign: "start",
-            background:
-              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
-            backgroundSize: "cover",
-            boxShadow: 'inset 0 0 0 100000px rgba(0,0,0,0.4)',
+            scrollSnapType: "y mandatory",
+            overflowY: "scroll",
+            overflowX: "hidden",
+            height: windowHeight || "100vh",
           }}
-        ></section>
-      </div>
+        >
+          <section
+            className="one h-full"
+            style={{
+              scrollSnapAlign: "start",
+              background:
+                windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
+              backgroundSize: "cover",
+              boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.4)",
+
+              zIndex: 2,
+            }}
+          ></section>
+          <section
+            className="one h-full flex justify-center"
+            style={{
+              scrollSnapAlign: "start",
+              background:
+                windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
+              backgroundSize: "cover",
+              boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.4)",
+            }}
+          ></section>
+          <section
+            className="one h-full flex justify-center"
+            style={{
+              scrollSnapAlign: "start",
+              background:
+                windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
+              backgroundSize: "cover",
+              boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.4)",
+            }}
+          ></section>
+        </div>
+      </>
     </Page>
   );
 };
