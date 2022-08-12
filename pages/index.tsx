@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Page } from "../components/Page";
 import { Navigation } from "../components/Navigation";
 import gsap from "gsap";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const photoIds = [1, 2, 3, 4, 5, 6];
@@ -38,10 +39,10 @@ const Home: NextPage = () => {
         duration: 1.5,
         stagger: 0.1,
       });
-      tl.from('#test', {
-        y: '200px',
+      tl.from("#test", {
+        y: "200px",
         duration: 2,
-      })
+      });
     }
   });
 
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
           style={{
             flexDirection: "column",
             position: "absolute",
-            pointerEvents: 'none'
+            pointerEvents: "none",
           }}
         >
           <p
@@ -92,24 +93,60 @@ const Home: NextPage = () => {
           </p>
         </div>
         <div
-          id="test"
-          className="bg-stone-300 flex flex-col justify-center hover:bg-stone-400"
-          onClick={() =>
-            document.getElementById("react-burger-menu-btn")?.click()
-          }
-          style={{
-            position: "absolute",
-            bottom: 10,
-            right: 10,
-            width: 100,
-            height: 100,
-            borderRadius: 50,
-          }}
+          className="flex"
+          style={{ position: "absolute", bottom: 10, right: 10 }}
         >
-          <p className="font-serif" style={{ alignSelf: "center" }}>
-            Details
-          </p>
+          <div
+            id="test"
+            className="mr-1 bg-yellow-400 text-stone-100 flex flex-col justify-center hover:bg-stone-400 cursor-pointer"
+            onClick={() =>
+              document.getElementById("react-burger-menu-btn")?.click()
+            }
+            style={{
+              width: 100,
+              borderRadius: 50,
+            }}
+          >
+            <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
+              <Link href="/event">Details</Link>
+            </p>
+          </div>
+          <div
+            id="test"
+            className="mr-1 bg-blue-500 text-stone-100 flex flex-col justify-center hover:bg-stone-400 cursor-pointer"
+            onClick={() =>
+              document.getElementById("react-burger-menu-btn")?.click()
+            }
+            style={{
+              width: 100,
+              borderRadius: 50,
+            }}
+          >
+            <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
+              RSVP
+            </p>
+          </div>
+          <div
+            id="test"
+            className="bg-pink-400 text-stone-100 flex flex-col justify-center hover:bg-stone-400 cursor-pointer"
+            onClick={() =>
+              document.getElementById("react-burger-menu-btn")?.click()
+            }
+            style={{
+              width: 100,
+              borderRadius: 50,
+            }}
+          >
+            <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
+              <Link
+                href="https://registry.theknot.com/adriana-davila-dan-morton-september-2023-il/54359222"
+              >
+                Registry
+              </Link>
+            </p>
+          </div>
         </div>
+
         <div
           className="scroll-container noscroll w-full"
           style={{

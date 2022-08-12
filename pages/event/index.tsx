@@ -18,14 +18,6 @@ const Event: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Menu width={300} pageWrapId="page-wrap" outerContainerId="outer">
-        <Link id="home" className="p-8menu-item" href="/">
-          Registry
-        </Link>
-        <Link id="home" className="p-1 menu-item" href="/">
-          Event details
-        </Link>
-      </Menu>
       <div
         className="p-8 bg-stone-300 h-screen overflow-y-scroll"
         id="page-wrap"
