@@ -85,7 +85,7 @@ const Home: NextPage = () => {
           </p>
           <p
             id="home-page-content"
-            style={{ width: 340 }}
+            style={{ width: 300 }}
             className="font-serif"
           >
             March 13th, 2021
@@ -99,8 +99,8 @@ const Home: NextPage = () => {
           }
           style={{
             position: "absolute",
-            bottom: 30,
-            right: 30,
+            bottom: 10,
+            right: 10,
             width: 100,
             height: 100,
             borderRadius: 50,
