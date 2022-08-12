@@ -40,7 +40,8 @@ const Home: NextPage = () => {
         stagger: 0.1,
       });
       tl.from("#test", {
-        y: "200px",
+        background: 'transparent',
+        color: 'transparent',
         duration: 2,
       });
     }
