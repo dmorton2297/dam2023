@@ -27,14 +27,14 @@ const Home: NextPage = () => {
       tl.to("#home-page-content", {
         x: "-100vw",
         y: "10vh",
-        fontSize: 80,
+        fontSize: 50,
         duration: 0,
       });
       tl.to("#home-page-content", {
         x: "50vw - 100px",
         y: "10vh",
         ease: "bounce",
-        fontSize: 80,
+        fontSize: 50,
         duration: 1.5,
         stagger: 0.1,
       });
