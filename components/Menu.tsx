@@ -8,6 +8,13 @@ export const Menu: React.FC = () => {
       <Link
         id="home"
         className="p-8 menu-item"
+        href="/event"
+      >
+        Wedding
+      </Link>
+      <Link
+        id="home"
+        className="p-8 menu-item"
         href="https://registry.theknot.com/adriana-davila-dan-morton-september-2023-il/54359222"
       >
         Registry
