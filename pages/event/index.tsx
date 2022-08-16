@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { slide as Menu } from "react-burger-menu";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Page } from "../../components/Page";
 
 const TextBlob: React.FC<{ children: React.ReactNode | React.ReactNode[] }> = ({
@@ -20,12 +20,21 @@ const TextBlob: React.FC<{ children: React.ReactNode | React.ReactNode[] }> = ({
 );
 
 const Event: NextPage = () => {
+  const [windowHeight, setWindowHeight] = useState<number>();
+  const [windowWidth, setWindowWidth] = useState<number>();
+  useEffect(() => {
+    if (window) {
+      setWindowHeight(window.innerHeight);
+      setWindowWidth(window.innerWidth);
+    }
+  }, []);
+  if (!windowWidth || windowHeight)
   return (
     <Page
       title="Dan and Adriana 2023"
       description="Details on our upcoming wedding"
     >
-      <div className="bg-stone-500 overflow-scroll h-screen">
+      <div className="bg-stone-500 overflow-scroll" style={{ height: windowHeight }}>
         <div
           className="h-80 flex justify-end"
           style={{
