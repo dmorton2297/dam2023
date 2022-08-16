@@ -28,6 +28,7 @@ const Event: NextPage = () => {
       setWindowWidth(window.innerWidth);
     }
   }, []);
+  
   if (!windowWidth || !windowHeight) return <></>;
   return (
     <Page
