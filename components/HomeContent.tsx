@@ -104,7 +104,7 @@ const HomeContent: React.FC = () => {
             background:
               windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
             backgroundSize: "cover",
-            boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.4)",
+            boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.3)",
 
             zIndex: 2,
           }}
@@ -116,7 +116,7 @@ const HomeContent: React.FC = () => {
             background:
               windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
             backgroundSize: "cover",
-            boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.4)",
+            boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.3)",
           }}
         ></section>
         <section
@@ -126,7 +126,7 @@ const HomeContent: React.FC = () => {
             background:
               windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
             backgroundSize: "cover",
-            boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.4)",
+            boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.3)",
           }}
         ></section>
       </div>
