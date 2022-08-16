@@ -28,7 +28,7 @@ const Event: NextPage = () => {
       setWindowWidth(window.innerWidth);
     }
   }, []);
-  if (!windowWidth || windowHeight) return <></>;
+  if (!windowWidth || !windowHeight) return <></>;
   return (
     <Page
       title="Dan and Adriana 2023"
