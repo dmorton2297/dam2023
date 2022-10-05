@@ -28,34 +28,29 @@ const Event: NextPage = () => {
       setWindowWidth(window.innerWidth);
     }
   }, []);
-  
+
   if (!windowWidth || !windowHeight) return <></>;
   return (
     <Page
       title="Dan and Adriana 2023"
       description="Details on our upcoming wedding"
     >
-      <div className="bg-stone-500 overflow-scroll" style={{ height: windowHeight }}>
-        <div
-          className="h-80 flex justify-end"
-          style={{
-            background: "url(6.jpeg)",
-            backgroundSize: "contain",
-            backgroundPositionY: 100,
-            backgroundRepeat: "no-repeat",
-          }}
+      <div
+        className="bg-neutral-800 overflow-scroll"
+        style={{ height: windowHeight }}
+      >
+        <h1 className="font-serif text-5xl pr-3 pt-7 pl-24 text-white">
+          The Wedding
+        </h1>
+        <h2
+          className="font-serif text-3xl pr-3 text-white text-center pt-0 pb-0 bg-blue-400"
+          style={{ position: "sticky", top: 0, zIndex: 100 }}
         >
-          <h1 className="font-serif text-5xl pr-3 pt-7 text-white">
-            The Wedding
-          </h1>
-        </div>
-        <h2 className="font-serif text-3xl pr-3 pt-7 text-white text-center bg-stone-700 pt-0">
-          May 13th, 2022
+          May 13th, 2023
         </h2>
         <TextBlob>
           <span>
-            After some anticipation, <strong>We are tying the knot!</strong>
-            <br />
+            <strong>We are tying the knot! 💍</strong>
             <br />
             We are move than excited to share this day with our friends and
             families.
@@ -88,8 +83,12 @@ const Event: NextPage = () => {
           <br />
           <strong>Hyatt House Chicago / West Loop-Fulton Market</strong>
           <br />
-          The hyatt offers reasonable room rates, and is within walking distance to the wedding venue.
-          There are tons of great food options in the area for guests looking to extend their stay in chicago.
+          The hyatt offers reasonable room rates, and is within walking distance
+          to the wedding venue. There are tons of great food options in the area
+          for guests looking to extend their stay in chicago.{" "}
+          <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=adm_sem_crp_chico_crp_ppc_NAM-UnitedStates-IL-Chicago-HH-CHIXL_google_Evergreen2022_e_hyatt%20house%20chicago%20west%20loop&gclid=CjwKCAjws--ZBhAXEiwAv-RNLzWhUPtD1XHTUBCDdImT84xIUuf0m_BKTZTXx_uoBee2i45nveVWMhoCFaoQAvD_BwE">
+            View details
+          </Link>
           <br />
           <br />
           <iframe
@@ -101,7 +100,6 @@ const Event: NextPage = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
-
         </TextBlob>
         <TextBlob>
           <strong className="font-serif text-2xl">RSVP</strong>
