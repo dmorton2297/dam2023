@@ -66,7 +66,7 @@ const HomeContent: React.FC = () => {
           Adriana
         </p>
         <p id="home-page-content" style={{ width: 300 }} className="font-serif">
-          May 13th, 2022
+          May 13th, 2023
         </p>
       </div>
       <div
