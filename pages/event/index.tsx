@@ -169,7 +169,7 @@ const Event: NextPage = () => {
                   style={{ width: 1200, height: 600, objectFit: "cover" }}
                 />
                 <p
-                  className="font-serif text-4xl pb-3 pt-2"
+                  className="text-4xl pb-3 pt-2"
                   style={{ textAlign: "left" }}
                 >
                   {
