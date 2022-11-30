@@ -30,82 +30,156 @@ const Event: NextPage = () => {
   }, []);
 
   if (!windowWidth || !windowHeight) return <></>;
+  console.log(windowHeight);
   return (
-    <Page
-      title="Dan and Adriana 2023"
-      description="Details on our upcoming wedding"
-    >
-      <div
-        className="bg-neutral-800 overflow-scroll"
-        style={{ height: windowHeight }}
-      >
-        <h1 className="font-serif text-5xl pr-3 pt-7 pl-24 text-white">
-          The Wedding
-        </h1>
-        <h2
-          className="font-serif text-3xl pr-3 text-white text-center pt-0 pb-0 bg-blue-400"
-          style={{ position: "sticky", top: 0, zIndex: 100 }}
+    <Page title="Dan and Adriana" description="Details on our upcoming wedding">
+      <div className="flex justify-center">
+        <div
+          style={{
+            height: windowHeight,
+            textAlign: "center",
+            overflowY: "scroll",
+          }}
+          className="bg-white flex-col"
         >
-          May 13th, 2023
-        </h2>
-        <TextBlob>
-          <span>
-            <strong>We are tying the knot! 💍</strong>
-            <br />
-            We are move than excited to share this day with our friends and
-            families.
-          </span>
-        </TextBlob>
-        <TextBlob>
-          <span>
-            <strong className="font-serif text-2xl">The Venue</strong>
-            <br />
-            Carnivale Restaurant - West loop
-          </span>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.2735811882367!2d-87.6481967845586!3d41.886973079221484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ccf9f3efab9%3A0x56ba0879346f24f!2sCarnivale!5e0!3m2!1sen!2sus!4v1660619113928!5m2!1sen!2sus"
-            height="450"
-            width="100%"
-            style={{ border: 0 }}
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </TextBlob>
-        <TextBlob>
-          <strong className="font-serif text-2xl">Attire</strong>
-          <br />
-          Semi-formal attire. Men may wear suits, but feel free to wear
-          something more casual.
-        </TextBlob>
-        <TextBlob>
-          <strong className="font-serif text-2xl">Hotels</strong>
-          <br />
-          <strong>Hyatt House Chicago / West Loop-Fulton Market</strong>
-          <br />
-          The hyatt offers reasonable room rates, and is within walking distance
-          to the wedding venue. There are tons of great food options in the area
-          for guests looking to extend their stay in chicago.{" "}
-          <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=adm_sem_crp_chico_crp_ppc_NAM-UnitedStates-IL-Chicago-HH-CHIXL_google_Evergreen2022_e_hyatt%20house%20chicago%20west%20loop&gclid=CjwKCAjws--ZBhAXEiwAv-RNLzWhUPtD1XHTUBCDdImT84xIUuf0m_BKTZTXx_uoBee2i45nveVWMhoCFaoQAvD_BwE">
-            View details
-          </Link>
-          <br />
-          <br />
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.4439395816426!2d-87.65745288411364!3d41.883308779221764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2d5de4f15119%3A0x243dc748b43a4cea!2sHyatt%20House%20Chicago%20%2F%20West%20Loop-Fulton%20Market!5e0!3m2!1sen!2sus!4v1660619817600!5m2!1sen!2sus"
-            height="450"
-            width="100%"
-            style={{ border: 0 }}
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </TextBlob>
-        <TextBlob>
-          <strong className="font-serif text-2xl">RSVP</strong>
-          <br />
-          RSVP details to come
-        </TextBlob>
+          <p className="font-serif text-6xl px-10 py-4">Dan & Adriana</p>
+          <hr />
+          <p className="font-serif text-5xl pb-6 pt-4">May 13th 2023</p>
+          <div className="p-8 bg-stone-100" style={{ position: "sticky" }}>
+            <p className="text-2xl">
+              Come join us to celebrate the marrige of Dan & Adriana this
+              upcoming sprint.{" "}
+            </p>
+          </div>
+          <div className="py-4 flex justify-center">
+            <div>
+              <p className="font-serif text-4xl pb-3">Wedding Details</p>
+
+              <div className="p-10 pt-3 mt-4 bg-stone-100">
+                <p className="font-serif text-4xl pb-3">Church</p>
+                <p className="text-2xl pb-3">
+                  Fourth Presbyterian Church, Chicago, IL
+                </p>
+                <img
+                  src="fourth.jpeg"
+                  style={{ width: 1200, height: 600, objectFit: "cover" }}
+                  className="pb-4"
+                />
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Ceremony</strong>: 4:30pm - 5:45pm
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Parking</strong>: There are a number of paid parking
+                  lots and street parking spots near the church,
+                  <br /> we encourage guests to plan ahead and carpool with
+                  family members to make parking easy. <br /> You can reserve
+                  spots via SportHero to revieve the best rates.
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Arriving</strong>: Guests can entrance via the main
+                  sancuatuary doors on Michigan Avenue.
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Etiquette</strong>: We kindly asks guests to refrain
+                  from using their phones and using any cameras during the
+                  cermony.
+                </p>
+              </div>
+              <div className="p-10 pt-3 mt-4 bg-stone-100">
+                <p className="font-serif text-4xl pb-3">Venue</p>
+                <p className="text-2xl pb-3">
+                  Carnivale, Chicago, Presbyterian IL
+                </p>
+                <img
+                  src="carnivale.jpeg"
+                  style={{ width: 1200, height: 600, objectFit: "cover" }}
+                  className="pb-4"
+                />
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Cocktail Hour</strong>: 6:00pm - 7:00pm
+                  <br />
+                  Cocktail hour will start promptly after the ceremony. Guests
+                  can arrive any time during cocktail, with dinner starting
+                  promptly at 7pm
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Parking</strong>: We encourage guests to plan ahead and carpool with
+                  family members to make parking easy. <br /> You can reserve
+                  spots via SportHero to revieve the best rates.
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Arriving</strong>: There will be signs directing guests, the reception is on the second floor of the restraunt.
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Bar</strong>: There will be a full bar, it is encouraned to bring cash to tip the bar tenders.
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Food</strong>: Buffet style food will be served with including vegetarian options.
+                </p>
+                <p className="text-xl pb-3" style={{ textAlign: "left" }}>
+                  <strong>Etiquette</strong>: We kindly asks guests to refrain
+                  from using their phones and using any cameras during the
+                  cermony.
+                </p>
+              </div>
+              <div className="p-10 pt-3 mt-4 mb-4 bg-stone-100">
+                <p className="font-serif text-4xl pb-3">Hotels</p>
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ=="
+                      className="text-2xl pb-3 underline text-blue-500"
+                    >
+                      Hampton Inn Chicago Downtown West Loop
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl"
+                      className="text-2xl pb-3 underline text-blue-500"
+                    >
+                      Hyatt House Chicago / West Loop-Fulton Market
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago"
+                      className="text-2xl pb-3 underline text-blue-500"
+                    >
+                      The Hoxton
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.marriott.com/en-us/hotels/chimm-courtyard-chicago-downtown-magnificent-mile/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
+                      className="text-2xl pb-3 underline text-blue-500"
+                    >
+                      Courtyard by Marriott
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="p-10 pt-3 mt-4 mb-4 bg-stone-100">
+                <p className="font-serif text-4xl pb-3">RSVP</p>
+                <p className="text-2xl pb-3">Coming Soon</p>
+              </div>
+              <div className="p-10 pt-3 bg-stone-100">
+                <img
+                  src="4.jpeg"
+                  style={{ width: 1200, height: 600, objectFit: "cover" }}
+                />
+                <p
+                  className="font-serif text-4xl pb-3 pt-2"
+                  style={{ textAlign: "left" }}
+                >
+                  {
+                    '"People are weird. When we find someone with a weirdness that is compatible with ours, we team up and call it love." - Dr. Suess'
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Page>
   );
