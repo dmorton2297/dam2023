@@ -47,8 +47,8 @@ const Event: NextPage = () => {
           <p className="font-serif text-5xl pb-6 pt-4">May 13th 2023</p>
           <div className="p-8 bg-stone-100" style={{ position: "sticky" }}>
             <p className="text-2xl">
-              Come join us to celebrate the marrige of Dan & Adriana this
-              upcoming sprint.{" "}
+              Come join us to celebrate the 👰‍♀️marriage🤵‍♂️ of Dan & Adriana this
+              upcoming spring.{" "}
             </p>
           </div>
           <div className="py-4 flex justify-center">
