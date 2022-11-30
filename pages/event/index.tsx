@@ -42,7 +42,7 @@ const Event: NextPage = () => {
           }}
           className="bg-white flex-col"
         >
-          <p className="font-serif text-6xl px-10 py-4">Dan & Adriana</p>
+          <p className="font-serif text-6xl mx-10 py-4 my-4">Dan & Adriana</p>
           <hr />
           <p className="font-serif text-5xl pb-6 pt-4">May 13th 2023</p>
           <div className="p-8 bg-stone-100" style={{ position: "sticky" }}>
