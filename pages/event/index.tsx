@@ -40,9 +40,9 @@ const Event: NextPage = () => {
             textAlign: "center",
             overflowY: "scroll",
           }}
-          className="bg-white flex-col"
+          className="bg-white flex-col px-10"
         >
-          <p className="font-serif text-5xl mx-10 py-4 my-4">Dan & Adriana</p>
+          <p className="font-serif text-6xl py-4 my-4">Dan & Adriana</p>
           <hr />
           <p className="font-serif text-5xl pb-6 pt-4">May 13th 2023</p>
           <div className="p-8 bg-stone-100" style={{ position: "sticky" }}>
