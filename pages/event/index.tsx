@@ -40,7 +40,7 @@ const Event: NextPage = () => {
             textAlign: "center",
             overflowY: "scroll",
           }}
-          className="bg-white flex-col px-10"
+          className="bg-white flex-col"
         >
           <p className="font-serif text-6xl py-4 my-4">Dan &<br /> Adriana</p>
           <hr />
