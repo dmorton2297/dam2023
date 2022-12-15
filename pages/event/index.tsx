@@ -42,7 +42,9 @@ const Event: NextPage = () => {
           }}
           className="bg-white flex-col"
         >
-          <p className="font-serif text-6xl py-4 my-4">Dan &<br /> Adriana</p>
+          <p className="font-serif text-6xl py-4 my-4">
+            Dan &<br /> Adriana
+          </p>
           <hr />
           <p className="font-serif text-5xl pb-6 pt-4">May 13th 2023</p>
           <div className="p-8 bg-stone-100" style={{ position: "sticky" }}>
@@ -103,18 +105,21 @@ const Event: NextPage = () => {
                   promptly at 7pm
                 </p>
                 <p className="text-xl pb-3" style={{ textAlign: "left" }}>
-                  <strong>Parking</strong>: We encourage guests to plan ahead and carpool with
-                  family members to make parking easy. <br /> You can reserve
-                  spots via SportHero to revieve the best rates.
+                  <strong>Parking</strong>: We encourage guests to plan ahead
+                  and carpool with family members to make parking easy. <br />{" "}
+                  You can reserve spots via SportHero to revieve the best rates.
                 </p>
                 <p className="text-xl pb-3" style={{ textAlign: "left" }}>
-                  <strong>Arriving</strong>: There will be signs directing guests, the reception is on the second floor of the restraunt.
+                  <strong>Arriving</strong>: There will be signs directing
+                  guests, the reception is on the second floor of the restraunt.
                 </p>
                 <p className="text-xl pb-3" style={{ textAlign: "left" }}>
-                  <strong>Bar</strong>: There will be a full bar, it is encouraned to bring cash to tip the bar tenders.
+                  <strong>Bar</strong>: There will be a full bar, it is
+                  encouraned to bring cash to tip the bar tenders.
                 </p>
                 <p className="text-xl pb-3" style={{ textAlign: "left" }}>
-                  <strong>Food</strong>: Buffet style food will be served with including vegetarian options.
+                  <strong>Food</strong>: Buffet style food will be served with
+                  including vegetarian options.
                 </p>
                 <p className="text-xl pb-3" style={{ textAlign: "left" }}>
                   <strong>Etiquette</strong>: We kindly asks guests to refrain
@@ -162,20 +167,6 @@ const Event: NextPage = () => {
               <div className="p-10 pt-3 mt-4 mb-4 bg-stone-100">
                 <p className="font-serif text-4xl pb-3">RSVP</p>
                 <p className="text-2xl pb-3">Coming Soon</p>
-              </div>
-              <div className="p-10 pt-3 bg-stone-100">
-                <img
-                  src="4.jpeg"
-                  style={{ width: 1200, height: 600, objectFit: "cover" }}
-                />
-                <p
-                  className="text-xl pb-3 pt-2"
-                  style={{ textAlign: "left" }}
-                >
-                  {
-                    '"People are weird. When we find someone with a weirdness that is compatible with ours, we team up and call it love." - Dr. Suess'
-                  }
-                </p>
               </div>
             </div>
           </div>
