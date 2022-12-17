@@ -5,18 +5,17 @@ export const Page: React.FC<{
   children: React.ReactElement;
   title: string;
   description: string;
-}> = ({ children, title, description }) => {
+  noHeightRestriction?: boolean;
+}> = ({ children, title, description, noHeightRestriction }) => {
   return (
-    <div id="outer">
+    <div id={noHeightRestriction ? "no-set-height" : "outer"}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Menu />
-      <div id="page-wrap">
-        {children}
-      </div>
+      <div id={noHeightRestriction ? "no-wrap" : "page-wrap"}>{children}</div>
     </div>
   );
 };

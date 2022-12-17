@@ -12,8 +12,9 @@
   }
 }
 
-body {
-  overflow: hidden;
+p h1 h2 h3 h4 span {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .full-screen-overlay {
@@ -38,7 +39,7 @@ body {
 }
 
 .nav-item {
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 .nav-item:hover {
@@ -121,11 +122,11 @@ body {
 /* Scoll bar override */
 /* Hide scrollbar for Chrome, Safari and Opera */
 .noscroll {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
 }
 
 .noscroll::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+  display: none; /* for Chrome, Safari, and Opera */
 }
