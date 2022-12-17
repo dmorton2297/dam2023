@@ -31,7 +31,7 @@ const Event: NextPage = () => {
         </InfoCard>
         <div className="flex justify-center">
           <div style={{ maxWidth: 1000, flexGrow: 1 }}>
-            <InfoCard title="Ceremony" open>
+            <InfoCard title="Ceremony">
               <Text> Fourth Presbyterian Church, Chicago, IL</Text>
               <br />
               <img
@@ -59,7 +59,7 @@ const Event: NextPage = () => {
                 cermony.
               </Text>
             </InfoCard>
-            <InfoCard title="Reception" open>
+            <InfoCard title="Reception">
               <Text>Carnivale, Chicago, Presbyterian IL</Text>
               <br />
               <img

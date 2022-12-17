@@ -7,7 +7,10 @@ export const Text: React.FC<{
 }> = ({ children, style, onClick }) => (
   <p
     className="text-xl"
-    style={style}
+    style={{
+      ...style,
+      fontWeight: 200,
+    }}
     onClick={onClick ? (e) => onClick(e) : undefined}
   >
     {children}
