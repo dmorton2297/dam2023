@@ -19,7 +19,6 @@ export const InfoCard: React.FC<{
         height: open ? "unset" : 72,
         overflow: "hidden",
         borderRadius: 10,
-        background: "rgba(255, 255, 255, 0.5)",
       }}
       className="p-4 border-x-neutral-300 border-2 m-3"
     >

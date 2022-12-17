@@ -17,48 +17,6 @@ p h1 h2 h3 h4 span {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: linear-gradient(
-    -45deg,
-    rgba(201, 75, 63),
-    rgba(75, 138, 157),
-    rgba(227, 194, 82)
-  );
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.full-screen-overlay {
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  overflow-y: scroll;
-}
-
-.blob {
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.85);
-  margin: 15px;
-  border-radius: 2px;
-}
-
 .text-ease-in {
   /* This section calls the slideInFromLeft animation we defined above */
   animation: 2s ease-out 0s 1 slideInFromLeft;

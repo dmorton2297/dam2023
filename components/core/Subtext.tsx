@@ -6,13 +6,13 @@ export const Subtext: React.FC<{
   onClick?: (e: any) => void;
 }> = ({ children, style, onClick }) => (
   <p
-    className="text-xl bg-stone-600"
+    className="text-xl font-bold bg-stone-400"
     style={{
       ...style,
-      fontWeight: 200,
+      fontWeight: 400,
       color: 'white',
-      padding: '0px 12px',
-      margin: '5px 0px',
+      padding: '5px 12px',
+      margin: '15px 0px',
       borderRadius: 1000,
     }}
     onClick={onClick ? (e) => onClick(e) : undefined}

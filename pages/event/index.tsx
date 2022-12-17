@@ -33,8 +33,16 @@ const Event: NextPage = () => {
         <div className="flex justify-center">
           <div style={{ maxWidth: 1000, flexGrow: 1 }}>
             <InfoCard title="Ceremony" open>
-              <Subtext>Fourth Presbyterian Church, Chicago, IL</Subtext>
-              <br />
+              <Subtext>
+                Fourth Presbyterian Church -{" "}
+                <a
+                  style={{ textDecoration: "underline" }}
+                  href="https://goo.gl/maps/RgvFaCsqZTBSzxAq9"
+                >
+                  126 E Chestnut St, Chicago, IL 60611
+                </a>
+              </Subtext>
+              <Subtext>Time: 4:30 PM - 5:45 pm</Subtext>
               <img
                 src="fourth.jpeg"
                 style={{ width: 1200, height: 600, objectFit: "cover" }}
@@ -61,8 +69,16 @@ const Event: NextPage = () => {
               </Text>
             </InfoCard>
             <InfoCard title="Reception">
-              <Text>Carnivale, Chicago, Presbyterian IL</Text>
-              <br />
+              <Subtext>
+                Carnivale -{" "}
+                <a
+                  style={{ textDecoration: "underline" }}
+                  href="https://goo.gl/maps/xDx8dQ1k6gjFw4qL8"
+                >
+                  702 W Fulton St, Chicago, IL 60661
+                </a>
+              </Subtext>
+              <Subtext>Time: 6:00 PM - 12:00 AM</Subtext>
               <img
                 src="carnivale.jpeg"
                 style={{ width: 1200, height: 600, objectFit: "cover" }}
@@ -142,7 +158,10 @@ const Event: NextPage = () => {
               </ul>
             </InfoCard>
             <InfoCard title="RSVP">
-              <Text style={{ textDecoration: 'underline', color: 'blue' }} onClick={(e) => e.stopPropagation()}>
+              <Text
+                style={{ textDecoration: "underline", color: "blue" }}
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Link href="/rsvp" className="pb-3 underline text-blue-500">
                   Retrieve my RSVP
                 </Link>
