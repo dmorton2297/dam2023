@@ -6,7 +6,7 @@ export const Text: React.FC<{
   onClick?: (e: any) => void;
 }> = ({ children, style, onClick }) => (
   <p
-    className="font-thin text-xl"
+    className="text-xl"
     style={style}
     onClick={onClick ? (e) => onClick(e) : undefined}
   >
