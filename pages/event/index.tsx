@@ -9,17 +9,6 @@ import { SubHeader } from "../../components/core/SubHeader";
 import { Seperator } from "../../components/core/Seperator";
 import Link from "next/link";
 
-const TextBlob: React.FC<{ children: React.ReactNode | React.ReactNode[] }> = ({
-  children,
-}) => (
-  <div
-    className="p-3 m-2 bg-stone-300 font-sans border-r"
-    style={{ borderRadius: 8 }}
-  >
-    {children}
-  </div>
-);
-
 const Event: NextPage = () => {
   return (
     <Page

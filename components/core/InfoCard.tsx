@@ -21,7 +21,14 @@ export const InfoCard: React.FC<{
       <div className="flex justify-between">
         {largeTitle && <Header>{title}</Header>}
         {!largeTitle && <SubHeader>{title}</SubHeader>}
-        <span style={{ marginTop: 5 }} className="material-symbols-outlined text-gray-500">{open ? 'expand_less' : 'expand_more'}</span>
+        {!noToggle && (
+          <span
+            style={{ marginTop: 5 }}
+            className="material-symbols-outlined text-gray-500"
+          >
+            {open ? "expand_less" : "expand_more"}
+          </span>
+        )}
       </div>
       {open && children}
     </div>
