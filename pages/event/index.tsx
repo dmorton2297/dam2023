@@ -8,6 +8,7 @@ import { Text } from "../../components/core/Text";
 import { SubHeader } from "../../components/core/SubHeader";
 import { Seperator } from "../../components/core/Seperator";
 import Link from "next/link";
+import { Subtext } from "../../components/core/Subtext";
 
 const Event: NextPage = () => {
   return (
@@ -31,8 +32,8 @@ const Event: NextPage = () => {
         </InfoCard>
         <div className="flex justify-center">
           <div style={{ maxWidth: 1000, flexGrow: 1 }}>
-            <InfoCard title="Ceremony">
-              <Text> Fourth Presbyterian Church, Chicago, IL</Text>
+            <InfoCard title="Ceremony" open>
+              <Subtext>Fourth Presbyterian Church, Chicago, IL</Subtext>
               <br />
               <img
                 src="fourth.jpeg"
