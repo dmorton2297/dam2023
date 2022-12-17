@@ -13,7 +13,7 @@ export const Subtext: React.FC<{
       color: 'white',
       padding: '5px 12px',
       margin: '15px 0px',
-      borderRadius: 1000,
+      borderRadius: 10,
     }}
     onClick={onClick ? (e) => onClick(e) : undefined}
   >
