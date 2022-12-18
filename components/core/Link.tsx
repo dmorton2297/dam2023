@@ -8,7 +8,7 @@ export const Link: React.FC<{
   return (
     <a
       href={href}
-      className={`pb-3 underline text-blue-500 ${className}`}
+      className={`pb-3 underline text-white ${className}`}
       onClick={(e) => e.stopPropagation()}
     >
       {children}

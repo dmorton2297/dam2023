@@ -66,8 +66,7 @@ const Event: NextPage = () => {
               <Seperator />
               <Text>
                 <strong>Etiquette</strong>: We kindly asks guests to refrain
-                from using cell phones and cameras during the
-                cermony.
+                from using cell phones and cameras during the cermony.
               </Text>
             </InfoCard>
             <InfoCard title="Reception">
@@ -91,8 +90,7 @@ const Event: NextPage = () => {
                 <strong>Cocktail Hour</strong>: 6:00pm - 7:00pm
                 <br />
                 Cocktail hour will start promptly after the ceremony. Guests can
-                arrive starting at 6pm, with dinner starting promptly
-                at 7pm.
+                arrive starting at 6pm, with dinner starting promptly at 7pm.
               </Text>
               <Seperator />
               <Text>
@@ -112,38 +110,43 @@ const Event: NextPage = () => {
               </Text>
               <Seperator />
               <Text>
-                <strong>Food</strong>: Buffet style food will be served including vegetarian options.
+                <strong>Food</strong>: Buffet style food will be served
+                including vegetarian options.
               </Text>
               <Seperator />
             </InfoCard>
             <InfoCard title="Hotels">
-              <Text>The following hotels are in close proximity to the reception.</Text>
+              <Text>
+                The following hotels are in close proximity to the reception.
+              </Text>
               <Seperator />
               <ul>
-                <Text>
-                  <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
-                    Hampton Inn Chicago Downtown West Loop
-                  </Link>
-                </Text>
-                <Text>
+                  <Subtext>
+                    <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
+                      Hampton Inn Chicago Downtown West Loop
+                    </Link>
+                  </Subtext>
+                <Subtext>
                   <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl">
                     Hyatt House Chicago / West Loop-Fulton Market
                   </Link>
-                </Text>
-                <Text>
+                </Subtext>
+                <Subtext>
                   <Link href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago">
                     The Hoxton
                   </Link>
-                </Text>
-                <Text>
+                </Subtext>
+                <Subtext>
                   <Link href="https://www.marriott.com/en-us/hotels/chimm-courtyard-chicago-downtown-magnificent-mile/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">
                     Courtyard by Marriott
                   </Link>
-                </Text>
+                </Subtext>
               </ul>
             </InfoCard>
             <InfoCard title="RSVP">
-              <Text>Click the button below and have your invitation handy to RSVP.</Text>
+              <Text>
+                Click the button below and have your invitation handy to RSVP.
+              </Text>
               <Seperator />
               <NextLink href="/rsvp" className="pb-3 underline text-blue-500">
                 <Button style={{ marginTop: 10 }}>Retrieve my RSVP</Button>

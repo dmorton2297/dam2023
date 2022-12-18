@@ -8,7 +8,7 @@ export const Subtext: React.FC<{
   <div
     className="flex"
     style={{
-      background: "rgba(135, 157, 186, 0.6)",
+      background: "rgba(135, 157, 186)",
       padding: "5px 12px",
       margin: "15px 0px",
       borderRadius: 10,
@@ -28,7 +28,10 @@ export const Subtext: React.FC<{
 
         color: "white",
       }}
-      onClick={onClick ? (e) => onClick(e) : undefined}
+      onClick={onClick ? (e) => {
+        e.stopPropagation();
+        onClick(e);
+      } : undefined}
     >
       {children}
     </p>
