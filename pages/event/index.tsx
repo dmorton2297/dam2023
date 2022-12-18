@@ -39,7 +39,7 @@ const Event: NextPage = () => {
                 Fourth Presbyterian Church -{" "}
                 <Link
                   href="https://goo.gl/maps/RgvFaCsqZTBSzxAq9"
-                  className="text-white"
+                  className="text-neutral-50"
                 >
                   126 E Chestnut St, Chicago, IL 60611
                 </Link>

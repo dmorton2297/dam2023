@@ -8,7 +8,7 @@ export const Subtext: React.FC<{
   <div
     className="flex"
     style={{
-      background: "rgba(135, 157, 186)",
+      background: "rgba(135, 157, 186, 0.6)",
       padding: "5px 12px",
       margin: "15px 0px",
       borderRadius: 10,
