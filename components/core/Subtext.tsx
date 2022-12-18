@@ -5,18 +5,32 @@ export const Subtext: React.FC<{
   style?: React.CSSProperties;
   onClick?: (e: any) => void;
 }> = ({ children, style, onClick }) => (
-  <p
-    className="text-xl font-bold bg-stone-400"
+  <div
+    className="flex"
     style={{
-      ...style,
-      fontWeight: 400,
-      color: 'white',
-      padding: '5px 12px',
-      margin: '15px 0px',
+      background: "rgba(135, 157, 186)",
+      padding: "5px 12px",
+      margin: "15px 0px",
       borderRadius: 10,
     }}
-    onClick={onClick ? (e) => onClick(e) : undefined}
   >
-    {children}
-  </p>
+    <span
+      style={{ marginTop: 2, marginRight: 10, cursor: "pointer", color: "white" }}
+      className="material-symbols-outlined text-gray-500"
+    >
+      info
+    </span>
+    <p
+      className="text-xl font-bold"
+      style={{
+        ...style,
+        fontWeight: 400,
+
+        color: "white",
+      }}
+      onClick={onClick ? (e) => onClick(e) : undefined}
+    >
+      {children}
+    </p>
+  </div>
 );

@@ -7,19 +7,21 @@ import { InfoCard } from "../../components/core/InfoCard";
 import { Text } from "../../components/core/Text";
 import { SubHeader } from "../../components/core/SubHeader";
 import { Seperator } from "../../components/core/Seperator";
-import Link from "next/link";
+import { Link } from "../../components/core/Link";
+import NextLink from "next/link";
 import { Subtext } from "../../components/core/Subtext";
+import { Button } from "../../components/core/Button";
 
 const Event: NextPage = () => {
   return (
     <Page
-      title="Dan and Adriana"
+      title="Adriana & Dan"
       description="Details on our upcoming wedding"
       noHeightRestriction
     >
       <div>
         <InfoCard
-          title="Dan & Adriana"
+          title="Adriana & Dan"
           style={{ marginLeft: 80, border: "none" }}
           largeTitle
           noToggle
@@ -27,7 +29,7 @@ const Event: NextPage = () => {
           <SubHeader>May 13th, 2023</SubHeader>
           <Seperator />
           <Text>
-            Join us to celebrate the marriage of Dan Morton and Adriana Davila.
+            Join us to celebrate the marriage of Adriana Davila and Dan Morton.
           </Text>
         </InfoCard>
         <div className="flex justify-center">
@@ -35,12 +37,12 @@ const Event: NextPage = () => {
             <InfoCard title="Ceremony" open>
               <Subtext>
                 Fourth Presbyterian Church -{" "}
-                <a
-                  style={{ textDecoration: "underline" }}
+                <Link
                   href="https://goo.gl/maps/RgvFaCsqZTBSzxAq9"
+                  className="text-white"
                 >
                   126 E Chestnut St, Chicago, IL 60611
-                </a>
+                </Link>
               </Subtext>
               <Subtext>Time: 4:30 PM - 5:45 pm</Subtext>
               <img
@@ -51,32 +53,32 @@ const Event: NextPage = () => {
               />
               <Text>
                 <strong>Parking</strong>: There are a number of paid parking
-                lots and street parking spots near the church,
+                lots and street parking near the church,
                 <br /> we encourage guests to plan ahead and carpool with family
                 members to make parking easy. <br /> You can reserve spots via
                 SportHero to revieve the best rates.
               </Text>
               <Seperator />
               <Text>
-                <strong>Arriving</strong>: Guests can entrance via the main
+                <strong>Arriving</strong>: Guests can enter via the main
                 sancuatuary doors on Michigan Avenue.
               </Text>
               <Seperator />
               <Text>
                 <strong>Etiquette</strong>: We kindly asks guests to refrain
-                from using their phones and using any cameras during the
+                from using cell phones and cameras during the
                 cermony.
               </Text>
             </InfoCard>
             <InfoCard title="Reception">
               <Subtext>
                 Carnivale -{" "}
-                <a
-                  style={{ textDecoration: "underline" }}
+                <Link
                   href="https://goo.gl/maps/xDx8dQ1k6gjFw4qL8"
+                  className="text-white"
                 >
                   702 W Fulton St, Chicago, IL 60661
-                </a>
+                </Link>
               </Subtext>
               <Subtext>Time: 6:00 PM - 12:00 AM</Subtext>
               <img
@@ -89,8 +91,8 @@ const Event: NextPage = () => {
                 <strong>Cocktail Hour</strong>: 6:00pm - 7:00pm
                 <br />
                 Cocktail hour will start promptly after the ceremony. Guests can
-                arrive any time during cocktail, with dinner starting promptly
-                at 7pm
+                arrive starting at 6pm, with dinner starting promptly
+                at 7pm.
               </Text>
               <Seperator />
               <Text>
@@ -110,62 +112,42 @@ const Event: NextPage = () => {
               </Text>
               <Seperator />
               <Text>
-                <strong>Food</strong>: Buffet style food will be served with
-                including vegetarian options.
+                <strong>Food</strong>: Buffet style food will be served including vegetarian options.
               </Text>
               <Seperator />
-              <Text>
-                <strong>Etiquette</strong>: We kindly asks guests to refrain
-                from using their phones and using any cameras during the
-                cermony.
-              </Text>
             </InfoCard>
             <InfoCard title="Hotels">
-              <hr />
+              <Text>The following hotels are in close proximity to the reception.</Text>
+              <Seperator />
               <ul>
                 <Text>
-                  <a
-                    href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ=="
-                    className="pb-3 underline text-blue-500"
-                  >
+                  <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
                     Hampton Inn Chicago Downtown West Loop
-                  </a>
+                  </Link>
                 </Text>
                 <Text>
-                  <a
-                    href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl"
-                    className="pb-3 underline text-blue-500"
-                  >
+                  <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl">
                     Hyatt House Chicago / West Loop-Fulton Market
-                  </a>
+                  </Link>
                 </Text>
                 <Text>
-                  <a
-                    href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago"
-                    className="pb-3 underline text-blue-500"
-                  >
+                  <Link href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago">
                     The Hoxton
-                  </a>
+                  </Link>
                 </Text>
                 <Text>
-                  <a
-                    href="https://www.marriott.com/en-us/hotels/chimm-courtyard-chicago-downtown-magnificent-mile/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
-                    className="pb-3 underline text-blue-500"
-                  >
+                  <Link href="https://www.marriott.com/en-us/hotels/chimm-courtyard-chicago-downtown-magnificent-mile/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">
                     Courtyard by Marriott
-                  </a>
+                  </Link>
                 </Text>
               </ul>
             </InfoCard>
             <InfoCard title="RSVP">
-              <Text
-                style={{ textDecoration: "underline", color: "blue" }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Link href="/rsvp" className="pb-3 underline text-blue-500">
-                  Retrieve my RSVP
-                </Link>
-              </Text>
+              <Text>Click the button below and have your invitation handy to RSVP.</Text>
+              <Seperator />
+              <NextLink href="/rsvp" className="pb-3 underline text-blue-500">
+                <Button style={{ marginTop: 10 }}>Retrieve my RSVP</Button>
+              </NextLink>
             </InfoCard>
           </div>
         </div>

@@ -59,11 +59,11 @@ const HomeContent: React.FC = () => {
           Celebrating
         </p>
         <p id="home-page-content" style={{ width: 300 }} className="font-serif">
-          Dan &
+          Adriana &
         </p>
 
         <p id="home-page-content" style={{ width: 300 }} className="font-serif">
-          Adriana
+          Dan
         </p>
         <p id="home-page-content" style={{ width: 300 }} className="font-serif">
           May 13th, 2023
