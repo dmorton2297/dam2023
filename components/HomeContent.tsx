@@ -76,11 +76,12 @@ const HomeContent: React.FC = () => {
         <Link href="/event">
           <div
             id="test"
-            className="mr-1 bg-stone-400 text-stone-100 flex flex-col justify-center cursor-pointer hover:bg-red-600"
+            className="mr-1 text-stone-100 flex flex-col justify-center cursor-pointer hover:bg-red-600"
             style={{
               width: 100,
               height: 100,
               borderRadius: 100,
+              color: "rgba(135, 157, 186)",
             }}
           >
             <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
