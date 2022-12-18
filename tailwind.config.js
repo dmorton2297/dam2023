@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['-apple-system, BlinkMacSystemFont, sans-serif'],
-        serif: ['\'Dancing Script\', cursive'],
+        serif: ['\'Alex Brush\', cursive'],
       },
     },
   },

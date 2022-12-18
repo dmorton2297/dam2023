@@ -15,7 +15,7 @@ export const Menu: React.FC = () => {
       <Link
         id="home"
         className="p-8 menu-item"
-        href="https://www.crateandbarrel.com/gift-registry/registrant-list/6551952"
+        href="https://www.crateandbarrel.com/gift-registry/adriana-dan-morton/r6551952"
       >
         Registry
       </Link>

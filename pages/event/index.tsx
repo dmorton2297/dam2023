@@ -143,7 +143,7 @@ const Event: NextPage = () => {
                 </Subtext>
               </ul>
             </InfoCard>
-            <InfoCard title="RSVP">
+            <InfoCard title="Rsvp">
               <Text>
                 Click the button below and have your invitation handy to RSVP.
               </Text>

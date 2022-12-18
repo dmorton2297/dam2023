@@ -98,15 +98,13 @@ const HomeContent: React.FC = () => {
         }}
       >
         <section
-          className="one h-full"
+          className="one h-full flex justify-center"
           style={{
             scrollSnapAlign: "start",
             background:
-              windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
+              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
             backgroundSize: "cover",
             boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.2)",
-
-            zIndex: 2,
           }}
         ></section>
         <section
@@ -120,13 +118,15 @@ const HomeContent: React.FC = () => {
           }}
         ></section>
         <section
-          className="one h-full flex justify-center"
+          className="one h-full"
           style={{
             scrollSnapAlign: "start",
             background:
-              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
+              windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
             backgroundSize: "cover",
             boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.2)",
+
+            zIndex: 2,
           }}
         ></section>
       </div>
