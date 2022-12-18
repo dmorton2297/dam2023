@@ -73,19 +73,21 @@ const HomeContent: React.FC = () => {
         className="flex"
         style={{ position: "absolute", bottom: 10, right: 10 }}
       >
-        <div
-          id="test"
-          className="mr-1 bg-stone-400 text-stone-100 flex flex-col justify-center cursor-pointer hover:bg-red-600"
-          style={{
-            width: 80,
-            height: 80,
-            borderRadius: 100,
-          }}
-        >
-          <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
-            <Link href="/event">Details</Link>
-          </p>
-        </div>
+        <Link href="/event">
+          <div
+            id="test"
+            className="mr-1 bg-stone-400 text-stone-100 flex flex-col justify-center cursor-pointer hover:bg-red-600"
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: 100,
+            }}
+          >
+            <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
+              Details
+            </p>
+          </div>
+        </Link>
       </div>
 
       <div
