@@ -81,7 +81,7 @@ const HomeContent: React.FC = () => {
               width: 100,
               height: 100,
               borderRadius: 100,
-              color: "rgba(135, 157, 186)",
+              backgroundColor: "rgba(135, 157, 186)",
             }}
           >
             <p className="font-serif text-2xl" style={{ alignSelf: "center" }}>
