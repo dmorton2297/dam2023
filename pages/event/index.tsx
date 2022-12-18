@@ -153,6 +153,7 @@ const Event: NextPage = () => {
               </NextLink>
             </InfoCard>
           </div>
+          <div style={{ height: 100 }} />
         </div>
       </div>
     </Page>
