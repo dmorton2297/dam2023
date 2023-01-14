@@ -10,18 +10,18 @@ export const Menu: React.FC = () => {
         Home
       </Link>
       <Seperator />
-      <Link id="home" className="p-8 menu-item font-serif" href="/event">
+      <Link id="wedding" className="p-8 menu-item font-serif" href="/event">
         Wedding
       </Link>
       <Seperator />
 
-      <Link id="home" className="p-8 menu-item font-serif" href="/event">
+      <Link id="wedding-party" className="p-8 menu-item font-serif" href="/people">
         Wedding Party
       </Link>
       <Seperator />
 
       <Link
-        id="home"
+        id="registry"
         className="p-8 menu-item font-serif"
         href="https://www.crateandbarrel.com/gift-registry/adriana-dan-morton/r6551952"
       >
@@ -29,7 +29,7 @@ export const Menu: React.FC = () => {
       </Link>
       <Seperator />
       <Link
-        id="home"
+        id="invitation"
         className="p-8 menu-item font-serif"
         href="/invitation.pdf"
         download="Invitation"
