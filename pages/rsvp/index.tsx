@@ -1,17 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
 import { Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import { Page } from "../../components/Page";
-import { number, boolean, object, string } from "yup";
-import axios from "axios";
-import { useRouter } from "next/router";
+import {object, string, array } from "yup";
+import axios, { AxiosResponse } from "axios";
 import { IRSVP } from "../../dal/Rsvp";
+import { Text } from "../../components/core/Text";
+import { Seperator } from "../../components/core/Seperator";
 
 const Event: NextPage = () => {
   const [windowHeight, setWindowHeight] = useState<number>();
   const [windowWidth, setWindowWidth] = useState<number>();
   const [rsvp, setRsvp] = useState<IRSVP | null>(null);
+  const [updateRsvp, setUpdateRsvp] = useState(false);
   useEffect(() => {
     if (window) {
       setWindowHeight(window.innerHeight);
@@ -24,22 +25,49 @@ const Event: NextPage = () => {
   });
 
   const rsvpReplySchema = object({
-    attending: string().required(),
+    attendees: array(
+      object({
+        name: string(),
+        attending: string(),
+      })
+    ),
     note: string().optional(),
-    numberAttending: number().required(),
   });
 
   const handleSubmit = async (values: any) => {
     const id = values.rsvpId;
-    const rsvp: IRSVP = await axios.get(`/api/rsvp?id=${id}`);
-    setRsvp(rsvp);
+    const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}`);
+    setRsvp(rsvp.data);
   };
 
   const handleReplyRsvp = async (values: any) => {
-    console.log(values);
+    console.log(values.note);
+    const mapped = values.attendees.map((x: any) => ({
+      ...x,
+      attending: x.attending === "YES",
+    }));
+    const response: AxiosResponse<IRSVP> = await axios.patch(
+      `/api/rsvp?id=${rsvp?.rsvpId}`,
+      {
+        note: values.note,
+        attendees: mapped,
+      }
+    );
+    setRsvp(response.data);
+    setUpdateRsvp(false);
   };
 
   if (!windowWidth || !windowHeight) return <></>;
+
+  const initialResponseValues = {
+    note: rsvp?.noteToCouple,
+    attendees: rsvp?.attendees?.map((x: any) => ({
+      ...x,
+      attending: x.attending ? "YES" : "NO",
+    })),
+  };
+
+  console.log(initialResponseValues);
   return (
     <Page
       title="Dan and Adriana 2023"
@@ -73,13 +101,13 @@ const Event: NextPage = () => {
                 initialValues={{ rsvpId: "" }}
               >
                 <Form>
-                  <p>
+                  <Text>
                     Please enter the number labeled as RSVP number. This number
                     is located on the invite, below the QR code.
-                  </p>
-                  <p>
+                  </Text>
+                  <Text>
                     <strong>RSVP Number</strong>
-                  </p>
+                  </Text>
                   <Field
                     name="rsvpId"
                     as="input"
@@ -96,56 +124,112 @@ const Event: NextPage = () => {
                 </Form>
               </Formik>
             )}
-            {rsvp && (
-              <Formik
-                validationSchema={rsvpReplySchema}
-                onSubmit={handleReplyRsvp}
-                initialValues={{ attending: false, note: "", attendees: [] }}
+            {rsvp?.noteToGuests && (
+              <div
+                className="p-4 mb-4"
+                style={{
+                  backgroundColor: "rgba(135, 157, 186)",
+                  color: "white",
+                }}
               >
-                <Form>
-                  <p style={{ marginBottom: 10 }}>
-                    Please reply to the RSVP below
-                  </p>
-                  <p>
-                    <strong>Are you attending?</strong>
-                  </p>
-                  <Field
-                    name="attending"
-                    as="select"
-                    style={{ outline: "1px solid black", padding: "5px 10px" }}
-                  >
-                    <option value="Yes">Yes</option>
-                    <option value="NO">No</option>
-                  </Field>
-                  <p style={{ marginTop: 10 }}>
-                    <strong>Note to couple</strong>
-                  </p>
-                  <Field
-                    name="note"
-                    as="textarea"
-                    label="Enter rsvp number"
-                    style={{ outline: "1px solid", width: '100%' }}
-                  />
-                  <p style={{ marginTop: 10 }}>
-                    <strong>Number of guests</strong>
-                  </p>
+                <Text>
+                  <strong>Note from couple:</strong> {rsvp.noteToGuests}
+                </Text>
+              </div>
+            )}
 
-                  <Field
-                    name="note"
-                    as="input"
-                    type="number"
-                    label="Enter rsvp number"
-                    style={{ outline: "1px solid" }}
-                  />
-                  <hr style={{ marginTop: 10, marginBottom: 10 }} />
-                  <button
-                    type="submit"
-                    style={{ border: "1px solid black", padding: "5px 10px" }}
-                  >
-                    Submit RSVP
-                  </button>
-                </Form>
-              </Formik>
+            {((rsvp?.attendees && !rsvp.repliedTo) ||
+              (rsvp?.repliedTo && updateRsvp)) && (
+                <Formik
+                  validationSchema={rsvpReplySchema}
+                  onSubmit={handleReplyRsvp}
+                  initialValues={initialResponseValues}
+                >
+                  <Form>
+                    <Text style={{ marginBottom: 10 }}>
+                      <strong>Please reply to the RSVP below</strong>
+                    </Text>
+                    <Seperator />
+                    {rsvp?.attendees?.map((x: any, i) => (
+                      <>
+                        <Text style={{ marginBottom: 5 }}>
+                          <strong>{x.name}</strong> are you attending?
+                        </Text>
+                        <Field
+                          name={`attendees[${i}].attending`}
+                          as="select"
+                          style={{
+                            outline: "1px solid black",
+                            padding: "5px 10px",
+                            marginBottom: 10,
+                          }}
+                          key={i}
+                        >
+                          <option value="YES">Yes</option>
+                          <option value="NO">No</option>
+                        </Field>
+                      </>
+                    ))}
+
+                    <Text style={{ marginTop: 10 }}>
+                      <strong>Note to couple</strong>
+                    </Text>
+                    <Field
+                      name="note"
+                      as="textarea"
+                      label="Note to couple"
+                      style={{
+                        outline: "1px solid",
+                        width: "100%",
+                        padding: 10,
+                      }}
+                    />
+                    <hr style={{ marginTop: 10, marginBottom: 10 }} />
+                    <button
+                      type="submit"
+                      style={{ border: "1px solid black", padding: "5px 10px" }}
+                    >
+                      Submit RSVP
+                    </button>
+                    <Text>
+                      Issues? Reach out to Dan at dmorton2297@gmail.com
+                    </Text>
+                  </Form>
+                </Formik>
+              )}
+            {rsvp?.attendees && rsvp.repliedTo && !updateRsvp && (
+              <>
+                <Text style={{ marginBottom: 10 }}>
+                  <strong>Thank you for replying!</strong>
+                </Text>
+                <Seperator />
+                {rsvp.attendees?.map((x: any, i) => (
+                  <>
+                    <Text style={{ marginBottom: 10 }}>
+                      <strong>{x.name}</strong> thank you for replying{" "}
+                      <strong>{x.attending ? "YES" : "NO"}</strong>
+                    </Text>
+                  </>
+                ))}
+                <Text style={{ marginBottom: 10 }}><strong>Note to couple: </strong>{rsvp.noteToCouple || 'NONE'}</Text>
+                <button
+                  style={{
+                    border: "1px solid black",
+                    padding: "5px 10px",
+                    marginBottom: 10,
+                  }}
+                  onClick={() => setUpdateRsvp(true)}
+                >
+                  Update RSVP
+                </button>
+                <Text>Issues? Reach out to Dan at dmorton2297@gmail.com</Text>
+              </>
+            )}
+            {rsvp && !rsvp.attendees && (
+              <Text>
+                Error: RSVP not found. Contact <strong>Dan</strong> at
+                dmorton2297@gmail.com and let him know about this issue.
+              </Text>
             )}
           </div>
         </div>

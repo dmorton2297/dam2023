@@ -1,17 +1,20 @@
 import { ObjectId } from "mongodb";
 import { getDbClient } from "./DBClient";
 
-export enum ResponseEnum {
-  ACCEPT = "ACCEPT",
-  DECLINE = "DECLINE",
-  NO_RESPONSE = "NO_RESPONSE",
-}
-
 export interface IRSVP {
   _id: ObjectId;
   rsvpId: string;
-  response: ResponseEnum;
-  note: string | null;
+  attendees: { name: string; attending: boolean }[];
+  noteToGuests: string | undefined;
+  noteToCouple: string;
+  repliedTo: boolean;
+  created: boolean;
+}
+
+export interface IAttendee {
+  name: string;
+  attending: boolean;
+  rsvpId?: string;
 }
 
 export const getRsvpBySuppliedNumber = async (suppliedNumber: string) => {
@@ -22,8 +25,6 @@ export const getRsvpBySuppliedNumber = async (suppliedNumber: string) => {
   if (!other) {
     response = await collection.insertOne({
       rsvpId: suppliedNumber,
-      response: ResponseEnum.NO_RESPONSE,
-      note: null,
     } as IRSVP);
     return await collection.findOne({ rsvpId: suppliedNumber });
   }
@@ -33,15 +34,18 @@ export const getRsvpBySuppliedNumber = async (suppliedNumber: string) => {
 
 export const updateRsvp = async (
   id: string,
-  response: ResponseEnum,
-  note: string
+  body: {
+    attendees: { name: string; attending: boolean }[];
+    note: string | undefined;
+  }
 ) => {
   const dbCLient = await getDbClient();
-  const filter = { _id: id };
+  const filter = { rsvpId: id };
   const updateDocument = {
     $set: {
-      response,
-      note,
+      attendees: body.attendees,
+      noteToCouple: body.note,
+      repliedTo: true,
     },
   };
   const result = await dbCLient
@@ -49,5 +53,47 @@ export const updateRsvp = async (
     .collection("rsvp")
     .updateOne(filter, updateDocument);
   await dbCLient.close();
-  return result;
+  return getRsvpBySuppliedNumber(id);
+};
+
+export const populateRSVPData = async (
+  id: string,
+  body: {
+    attendees: string[];
+    noteToGuests: string | undefined;
+  }
+) => {
+  const dbCLient = await getDbClient();
+  const filter = { rsvpId: id };
+  const updateDocument = {
+    $set: {
+      attendees: body.attendees.map((x: string) => ({
+        name: x,
+        attending: false,
+      })),
+      noteToGuests: body.noteToGuests,
+      created: true,
+    },
+  };
+  const result = await dbCLient
+    .db()
+    .collection("rsvp")
+    .updateOne(filter, updateDocument);
+  await dbCLient.close();
+  return getRsvpBySuppliedNumber(id);
+};
+
+export const getAllAttendeeData = async () => {
+  const dbClient = await getDbClient();
+  console.log("in here");
+  const cursor = dbClient.db().collection("rsvp").find<IRSVP>({});
+
+  const results: IAttendee[] = [];
+  await cursor.forEach((x: IRSVP) => {
+    results.push(...x.attendees.map((a) => ({ ...a, rsvpId: x.rsvpId })));
+    return true;
+  });
+  console.log(results);
+  const attendees = [];
+  return results;
 };
