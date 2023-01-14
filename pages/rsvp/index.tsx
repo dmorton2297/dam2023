@@ -2,11 +2,12 @@ import { Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import { Page } from "../../components/Page";
-import {object, string, array } from "yup";
+import { object, string, array } from "yup";
 import axios, { AxiosResponse } from "axios";
 import { IRSVP } from "../../dal/Rsvp";
 import { Text } from "../../components/core/Text";
 import { Seperator } from "../../components/core/Seperator";
+import Link from "next/link";
 
 const Event: NextPage = () => {
   const [windowHeight, setWindowHeight] = useState<number>();
@@ -140,63 +141,61 @@ const Event: NextPage = () => {
 
             {((rsvp?.attendees && !rsvp.repliedTo) ||
               (rsvp?.repliedTo && updateRsvp)) && (
-                <Formik
-                  validationSchema={rsvpReplySchema}
-                  onSubmit={handleReplyRsvp}
-                  initialValues={initialResponseValues}
-                >
-                  <Form>
-                    <Text style={{ marginBottom: 10 }}>
-                      <strong>Please reply to the RSVP below</strong>
-                    </Text>
-                    <Seperator />
-                    {rsvp?.attendees?.map((x: any, i) => (
-                      <>
-                        <Text style={{ marginBottom: 5 }}>
-                          <strong>{x.name}</strong> are you attending?
-                        </Text>
-                        <Field
-                          name={`attendees[${i}].attending`}
-                          as="select"
-                          style={{
-                            outline: "1px solid black",
-                            padding: "5px 10px",
-                            marginBottom: 10,
-                          }}
-                          key={i}
-                        >
-                          <option value="YES">Yes</option>
-                          <option value="NO">No</option>
-                        </Field>
-                      </>
-                    ))}
+              <Formik
+                validationSchema={rsvpReplySchema}
+                onSubmit={handleReplyRsvp}
+                initialValues={initialResponseValues}
+              >
+                <Form>
+                  <Text style={{ marginBottom: 10 }}>
+                    <strong>Please reply to the RSVP below</strong>
+                  </Text>
+                  <Seperator />
+                  {rsvp?.attendees?.map((x: any, i) => (
+                    <>
+                      <Text style={{ marginBottom: 5 }}>
+                        <strong>{x.name}</strong> are you attending?
+                      </Text>
+                      <Field
+                        name={`attendees[${i}].attending`}
+                        as="select"
+                        style={{
+                          outline: "1px solid black",
+                          padding: "5px 10px",
+                          marginBottom: 10,
+                        }}
+                        key={i}
+                      >
+                        <option value="YES">Yes</option>
+                        <option value="NO">No</option>
+                      </Field>
+                    </>
+                  ))}
 
-                    <Text style={{ marginTop: 10 }}>
-                      <strong>Note to couple</strong>
-                    </Text>
-                    <Field
-                      name="note"
-                      as="textarea"
-                      label="Note to couple"
-                      style={{
-                        outline: "1px solid",
-                        width: "100%",
-                        padding: 10,
-                      }}
-                    />
-                    <hr style={{ marginTop: 10, marginBottom: 10 }} />
-                    <button
-                      type="submit"
-                      style={{ border: "1px solid black", padding: "5px 10px" }}
-                    >
-                      Submit RSVP
-                    </button>
-                    <Text>
-                      Issues? Reach out to Dan at dmorton2297@gmail.com
-                    </Text>
-                  </Form>
-                </Formik>
-              )}
+                  <Text style={{ marginTop: 10 }}>
+                    <strong>Note to couple</strong>
+                  </Text>
+                  <Field
+                    name="note"
+                    as="textarea"
+                    label="Note to couple"
+                    style={{
+                      outline: "1px solid",
+                      width: "100%",
+                      padding: 10,
+                    }}
+                  />
+                  <hr style={{ marginTop: 10, marginBottom: 10 }} />
+                  <button
+                    type="submit"
+                    style={{ border: "1px solid black", padding: "5px 10px" }}
+                  >
+                    Submit RSVP
+                  </button>
+                  <Text>Issues? Reach out to Dan at dmorton2297@gmail.com</Text>
+                </Form>
+              </Formik>
+            )}
             {rsvp?.attendees && rsvp.repliedTo && !updateRsvp && (
               <>
                 <Text style={{ marginBottom: 10 }}>
@@ -211,7 +210,10 @@ const Event: NextPage = () => {
                     </Text>
                   </>
                 ))}
-                <Text style={{ marginBottom: 10 }}><strong>Note to couple: </strong>{rsvp.noteToCouple || 'NONE'}</Text>
+                <Text style={{ marginBottom: 10 }}>
+                  <strong>Note to couple: </strong>
+                  {rsvp.noteToCouple || "NONE"}
+                </Text>
                 <button
                   style={{
                     border: "1px solid black",
@@ -222,7 +224,20 @@ const Event: NextPage = () => {
                 >
                   Update RSVP
                 </button>
-                <Text>Issues? Reach out to Dan at dmorton2297@gmail.com</Text>
+                <Text style={{ marginBottom: 20 }}>
+                  Issues? Reach out to Dan at dmorton2297@gmail.com
+                </Text>
+                <Link href="/">
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      padding: "5px 10px",
+                      marginBottom: 10,
+                    }}
+                  >
+                    Continue to website
+                  </button>
+                </Link>
               </>
             )}
             {rsvp && !rsvp.attendees && (

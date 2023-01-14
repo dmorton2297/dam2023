@@ -69,7 +69,7 @@ const Event: NextPage = () => {
                 from using cell phones and cameras during the cermony.
               </Text>
             </InfoCard>
-            <InfoCard title="Reception">
+            <InfoCard title="Reception" open={true}>
               <Subtext>
                 Carnivale -{" "}
                 <Link
@@ -115,17 +115,17 @@ const Event: NextPage = () => {
               </Text>
               <Seperator />
             </InfoCard>
-            <InfoCard title="Hotels">
+            <InfoCard title="Hotels" open={true}>
               <Text>
                 The following hotels are in close proximity to the reception.
               </Text>
               <Seperator />
               <ul>
-                  <Subtext>
-                    <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
-                      Hampton Inn Chicago Downtown West Loop
-                    </Link>
-                  </Subtext>
+                <Subtext>
+                  <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
+                    Hampton Inn Chicago Downtown West Loop
+                  </Link>
+                </Subtext>
                 <Subtext>
                   <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl">
                     Hyatt House Chicago / West Loop-Fulton Market
@@ -145,12 +145,27 @@ const Event: NextPage = () => {
             </InfoCard>
             <InfoCard title="Rsvp">
               <Text>
-                Click the button below and have your invitation handy to RSVP.
+                Click the button below and have your invitation handy to update
+                your RSVP.
               </Text>
               <Seperator />
               <NextLink href="/rsvp" className="pb-3 underline text-blue-500">
                 <Button style={{ marginTop: 10 }}>Retrieve my RSVP</Button>
               </NextLink>
+            </InfoCard>
+            <InfoCard title="Wedding Party">
+              <Text>Click the button below to view the wedding party</Text>
+              <Seperator />
+              <NextLink href="/people" className="pb-3 underline text-blue-500">
+                <Button style={{ marginTop: 10 }}>Wedding Party</Button>
+              </NextLink>
+            </InfoCard>
+            <InfoCard title="Registry">
+              <Text>Click the button below to view the couples registry</Text>
+              <Seperator />
+              <a style={{ color: 'black' }} href="https://www.crateandbarrel.com/gift-registry/adriana-dan-morton/r6551952" className="pb-3 underline text-blue-500">
+                <Button style={{ marginTop: 10 }}>Registry</Button>
+              </a>
             </InfoCard>
           </div>
           <div style={{ height: 100 }} />

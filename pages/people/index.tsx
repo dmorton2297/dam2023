@@ -8,6 +8,8 @@ import { Text } from "../../components/core/Text";
 import { SubHeader } from "../../components/core/SubHeader";
 import { Seperator } from "../../components/core/Seperator";
 import { Header } from "../../components/core/Header";
+import Link from "next/link";
+import { Button } from "../../components/core/Button";
 
 const Event: NextPage = () => {
   return (
@@ -30,7 +32,7 @@ const Event: NextPage = () => {
           </Text>
         </InfoCard>
         <div className="flex justify-center">
-          <div style={{ margin: "0 80px", flexGrow: 1, maxWidth: 1400 }}>
+          <div style={{ flexGrow: 1, maxWidth: 1400 }}>
             <InfoCard title="The Bridemaids" open={true}>
               <div className="p-4 flex justify-center">
                 <div>
@@ -39,8 +41,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="kelli.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="kelli"
                   />
@@ -53,8 +55,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="heather.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="heather"
                   />
@@ -65,8 +67,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="kaylyn.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="Kaylyn Fales"
                   />
@@ -77,8 +79,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="william.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="natalie"
                   />
@@ -89,8 +91,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="natalie.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="natalie"
                   />
@@ -101,8 +103,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="madison.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="natalie"
                   />
@@ -113,8 +115,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="katina.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="natalie"
                   />
@@ -125,8 +127,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="mckenzie.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="kasey"
                   />
@@ -137,8 +139,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="kasey.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="kasey"
                   />
@@ -153,8 +155,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="mike.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="mike"
                   />
@@ -167,8 +169,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="kevin.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="Kevin"
                   />
@@ -179,8 +181,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="sean.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="sean"
                   />
@@ -191,8 +193,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="angel.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="angel"
                   />
@@ -203,8 +205,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="matt.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="matt"
                   />
@@ -216,8 +218,8 @@ const Event: NextPage = () => {
                   <Text>Griffin Flack</Text>
                   <img
                     src="griffin.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="griffin"
                   />
@@ -228,8 +230,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="jon.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="jon"
                   />
@@ -240,8 +242,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="parker.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="parker"
                   />
@@ -252,8 +254,8 @@ const Event: NextPage = () => {
                   </Text>
                   <img
                     src="rory.jpg"
-                    height={300}
-                    width={300}
+                    height={400}
+                    width={400}
                     style={{ borderRadius: 10000 }}
                     alt="rory"
                   />
@@ -262,6 +264,9 @@ const Event: NextPage = () => {
             </InfoCard>
           </div>
         </div>
+        <Link href="/event" className="pb-3 underline text-blue-500">
+          <Button style={{ margin: "0 200px" }}>Wedding details</Button>
+        </Link>
       </div>
     </Page>
   );
