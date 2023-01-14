@@ -1,5 +1,5 @@
 import { Field, useField, useFormikContext } from "formik";
-import { Seperator } from "../../components/core/Seperator";
+import { Seperator } from "./core/Seperator";
 
 export const AtendeeFormControl: React.FC<{ name: string }> = ({ name }) => {
   const [field] = useField(name);
