@@ -8,7 +8,7 @@ import { IRSVP } from "../../dal/Rsvp";
 import { Text } from "../../components/core/Text";
 import { Seperator } from "../../components/core/Seperator";
 import Link from "next/link";
-import { textContentEnglish, textContentSpanish } from "./textContent";
+import { textContentEnglish, textContentSpanish } from "../../components/textContent";
 import { Button } from "../../components/core/Button";
 
 const Event: NextPage = () => {
