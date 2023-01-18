@@ -9,6 +9,7 @@ export interface IRSVP {
   noteToCouple: string;
   repliedTo: boolean;
   created: boolean;
+  inSpanish?: boolean;
 }
 
 export interface IAttendee {
@@ -48,7 +49,7 @@ export const updateRsvp = async (
       repliedTo: true,
     },
   };
-  const result = await dbCLient
+  await dbCLient
     .db()
     .collection("rsvp")
     .updateOne(filter, updateDocument);
@@ -61,6 +62,7 @@ export const populateRSVPData = async (
   body: {
     attendees: string[];
     noteToGuests: string | undefined;
+    inSpanish?: boolean;
   }
 ) => {
   const dbCLient = await getDbClient();
@@ -73,6 +75,7 @@ export const populateRSVPData = async (
       })),
       noteToGuests: body.noteToGuests,
       created: true,
+      inSpanish: body.inSpanish,
     },
   };
   const result = await dbCLient

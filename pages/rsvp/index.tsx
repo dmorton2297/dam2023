@@ -8,12 +8,19 @@ import { IRSVP } from "../../dal/Rsvp";
 import { Text } from "../../components/core/Text";
 import { Seperator } from "../../components/core/Seperator";
 import Link from "next/link";
+import { textContentEnglish, textContentSpanish } from "./textContent";
+import { Button } from "../../components/core/Button";
 
 const Event: NextPage = () => {
   const [windowHeight, setWindowHeight] = useState<number>();
   const [windowWidth, setWindowWidth] = useState<number>();
   const [rsvp, setRsvp] = useState<IRSVP | null>(null);
   const [updateRsvp, setUpdateRsvp] = useState(false);
+  const [shouldShowSpanish, setShouldShowSpanish] = useState(rsvp?.inSpanish);
+
+  const textContent = shouldShowSpanish
+    ? textContentSpanish
+    : textContentEnglish;
   useEffect(() => {
     if (window) {
       setWindowHeight(window.innerHeight);
@@ -39,6 +46,7 @@ const Event: NextPage = () => {
     const id = values.rsvpId;
     const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}`);
     setRsvp(rsvp.data);
+    setShouldShowSpanish(rsvp.data.inSpanish)
   };
 
   const handleReplyRsvp = async (values: any) => {
@@ -95,6 +103,14 @@ const Event: NextPage = () => {
               padding: 10,
             }}
           >
+            {rsvp?._id && (
+              <Button
+                style={{ marginBottom: 10 }}
+                onClick={() => setShouldShowSpanish((value) => !value)}
+              >
+                {shouldShowSpanish ? "Toggle to english" : "Toggle to spanish"}
+              </Button>
+            )}
             {!rsvp && (
               <Formik
                 validationSchema={getRsvpSchema}
@@ -102,12 +118,16 @@ const Event: NextPage = () => {
                 initialValues={{ rsvpId: "" }}
               >
                 <Form>
-                  <Text>
-                    Please enter the number labeled as RSVP number. This number
-                    is located on the invite, below the QR code.
+                  <Text>{textContentEnglish.enterRsvpIdLabel}</Text>
+                  <Seperator />
+                  <Text style={{ marginBottom: 20 }}>
+                    {textContentSpanish.enterRsvpIdLabel}
                   </Text>
                   <Text>
-                    <strong>RSVP Number</strong>
+                    <strong>
+                      {textContentEnglish.rsvpNumberLabel} (
+                      {textContentSpanish.rsvpNumberLabel})
+                    </strong>
                   </Text>
                   <Field
                     name="rsvpId"
@@ -120,7 +140,7 @@ const Event: NextPage = () => {
                     type="submit"
                     style={{ border: "1px solid black", padding: "5px 10px" }}
                   >
-                    Retrieve RSVP
+                    {textContent.findRsvpLabel}
                   </button>
                 </Form>
               </Formik>
@@ -134,85 +154,90 @@ const Event: NextPage = () => {
                 }}
               >
                 <Text>
-                  <strong>Note from couple:</strong> {rsvp.noteToGuests}
+                  <strong>{textContent.noteFromCoupleLabel}:</strong>{" "}
+                  {rsvp.noteToGuests}
                 </Text>
               </div>
             )}
-
             {((rsvp?.attendees && !rsvp.repliedTo) ||
               (rsvp?.repliedTo && updateRsvp)) && (
-              <Formik
-                validationSchema={rsvpReplySchema}
-                onSubmit={handleReplyRsvp}
-                initialValues={initialResponseValues}
-              >
-                <Form>
-                  <Text style={{ marginBottom: 10 }}>
-                    <strong>Please reply to the RSVP below</strong>
-                  </Text>
-                  <Seperator />
-                  {rsvp?.attendees?.map((x: any, i) => (
-                    <>
-                      <Text style={{ marginBottom: 5 }}>
-                        <strong>{x.name}</strong> are you attending?
-                      </Text>
-                      <Field
-                        name={`attendees[${i}].attending`}
-                        as="select"
-                        style={{
-                          outline: "1px solid black",
-                          padding: "5px 10px",
-                          marginBottom: 10,
-                        }}
-                        key={i}
-                      >
-                        <option value="YES">Yes</option>
-                        <option value="NO">No</option>
-                      </Field>
-                    </>
-                  ))}
+              <>
+                <Formik
+                  validationSchema={rsvpReplySchema}
+                  onSubmit={handleReplyRsvp}
+                  initialValues={initialResponseValues}
+                >
+                  <Form>
+                    <Text style={{ marginBottom: 10 }}>
+                      <strong>{textContent.pleaseReplyLabel}</strong>
+                    </Text>
+                    <Seperator />
+                    {rsvp?.attendees?.map((x: any, i) => (
+                      <>
+                        <Text style={{ marginBottom: 5 }}>
+                          <strong>{x.name}</strong>{" "}
+                          {textContent.areYouAttending}?
+                        </Text>
+                        <Field
+                          name={`attendees[${i}].attending`}
+                          as="select"
+                          style={{
+                            outline: "1px solid black",
+                            padding: "5px 10px",
+                            marginBottom: 10,
+                          }}
+                          key={i}
+                        >
+                          <option value="YES">{textContent.yes}</option>
+                          <option value="NO">{textContent.no}</option>
+                        </Field>
+                      </>
+                    ))}
 
-                  <Text style={{ marginTop: 10 }}>
-                    <strong>Note to couple</strong>
-                  </Text>
-                  <Field
-                    name="note"
-                    as="textarea"
-                    label="Note to couple"
-                    style={{
-                      outline: "1px solid",
-                      width: "100%",
-                      padding: 10,
-                    }}
-                  />
-                  <hr style={{ marginTop: 10, marginBottom: 10 }} />
-                  <button
-                    type="submit"
-                    style={{ border: "1px solid black", padding: "5px 10px" }}
-                  >
-                    Submit RSVP
-                  </button>
-                  <Text>Issues? Reach out to Dan at dmorton2297@gmail.com</Text>
-                </Form>
-              </Formik>
+                    <Text style={{ marginTop: 10 }}>
+                      <strong>{textContent.noteToCoupleLabel}</strong>
+                    </Text>
+                    <Field
+                      name="note"
+                      as="textarea"
+                      label="Note to couple"
+                      style={{
+                        outline: "1px solid",
+                        width: "100%",
+                        padding: 10,
+                      }}
+                    />
+                    <hr style={{ marginTop: 10, marginBottom: 10 }} />
+                    <button
+                      type="submit"
+                      style={{ border: "1px solid black", padding: "5px 10px" }}
+                    >
+                      {textContent.submit}
+                    </button>
+                  </Form>
+                </Formik>
+              </>
             )}
             {rsvp?.attendees && rsvp.repliedTo && !updateRsvp && (
               <>
                 <Text style={{ marginBottom: 10 }}>
-                  <strong>Thank you for replying!</strong>
+                  <strong>{textContent.thankyouForReplyingLabel}</strong>
                 </Text>
                 <Seperator />
                 {rsvp.attendees?.map((x: any, i) => (
                   <>
                     <Text style={{ marginBottom: 10 }}>
-                      <strong>{x.name}</strong> thank you for replying{" "}
-                      <strong>{x.attending ? "YES" : "NO"}</strong>
+                      <strong>{x.name}</strong>{" "}
+                      {textContent.thankyouForForReplyingText}{" "}
+                      <strong>
+                        {x.attending ? textContent.yes : textContent.no}
+                      </strong>
                     </Text>
                   </>
                 ))}
                 <Text style={{ marginBottom: 10 }}>
-                  <strong>Note to couple: </strong>
-                  {rsvp.noteToCouple || "NONE"}
+                  <strong>{textContent.noteToCoupleLabel}: </strong>
+                  {rsvp.noteToCouple || textContent.none}
                 </Text>
                 <button
                   style={{
@@ -222,32 +247,29 @@ const Event: NextPage = () => {
                   }}
                   onClick={() => setUpdateRsvp(true)}
                 >
-                  Update RSVP
+                  {textContent.updateRsvpLabel}
                 </button>
-                <Text style={{ marginBottom: 20 }}>
-                  Issues? Reach out to Dan at dmorton2297@gmail.com
-                </Text>
+                <br />
                 <Link href="/">
                   <button
                     style={{
                       border: "1px solid black",
                       padding: "5px 10px",
                       marginBottom: 10,
+                      marginRight: 10,
                     }}
                   >
-                    Continue to website
+                    {textContent.continueToWebsite}
                   </button>
                 </Link>
               </>
             )}
-            {rsvp && !rsvp.attendees && (
-              <Text>
-                Error: RSVP not found. Contact <strong>Dan</strong> at
-                dmorton2297@gmail.com and let him know about this issue.
-              </Text>
-            )}
+            {rsvp && !rsvp.attendees && <Text>{textContent.errorText}</Text>}
           </div>
         </div>
+        <Text style={{ marginBottom: 20, marginTop: 40 }}>
+          {textContent.issuesText}
+        </Text>
       </div>
     </Page>
   );

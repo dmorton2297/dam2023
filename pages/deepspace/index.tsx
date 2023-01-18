@@ -41,6 +41,7 @@ const Event: NextPage = () => {
   const rsvpReplySchema = object({
     attendees: array(),
     noteToGuests: string().optional(),
+    inSpanish: string().optional(),
   });
 
   const handleSubmit = async (values: any) => {
@@ -52,12 +53,15 @@ const Event: NextPage = () => {
   const handleCreateRsvp = async (values: {
     attendees: (string | undefined)[];
     noteToGuests: string | undefined;
+    inSpanish?: string | undefined;
   }) => {
+    console.log(values.inSpanish);
     const payload = {
       attendees: values.attendees.filter(
         (x: string | undefined) => x !== undefined && x !== ""
       ),
       noteToGuests: values.noteToGuests,
+      inSpanish: values.inSpanish === 'yes',
     };
 
     const response: AxiosResponse<IRSVP> = await axios.post(
@@ -143,10 +147,23 @@ const Event: NextPage = () => {
                     as="textarea"
                     style={{ outline: "1px solid", width: 300 }}
                   />
+                  <Text style={{ marginBottom: 10 }}>
+                    Show page in spanish?
+                  </Text>
+                  <Field
+                    as="input"
+                    name="inSpanish"
+                    style={{ outline: "1px solid", width: 300 }}
+                  />
+
                   <Seperator />
                   <button
                     type="submit"
-                    style={{ border: "1px solid black", padding: "5px 10px", marginBottom: 10 }}
+                    style={{
+                      border: "1px solid black",
+                      padding: "5px 10px",
+                      marginBottom: 10,
+                    }}
                   >
                     Submit RSVP
                   </button>

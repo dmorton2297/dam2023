@@ -19,7 +19,7 @@ const Event: NextPage = () => {
       description="Details on our upcoming wedding"
       noHeightRestriction
     >
-      <div>
+      <div style={{ width: '100%' }}>
         <InfoCard
           title="Adriana & Dan"
           style={{ marginLeft: 80, border: "none" }}
