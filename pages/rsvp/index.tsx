@@ -149,10 +149,17 @@ const Event: NextPage = () => {
               <div
                 className="p-4 mb-4"
                 style={{
-                  backgroundColor: "rgba(135, 157, 186)",
-                  color: "white",
+                  border: "3px solid rgba(135, 157, 186)",
+                  borderColor: "rgba(135, 157, 186)",
+                  boxShadow: "1px 2px rgba(135, 157, 186, 0.5)",
+                  display: "flex",
+                  alignContent: 'center'
                 }}
               >
+                <span className="material-symbols-outlined" style={{ marginTop: 3, marginRight: 10 }}>
+                  mail
+                </span>
+
                 <Text>
                   <strong>{textContent.noteFromCoupleLabel}:</strong>{" "}
                   {rsvp.noteToGuests}

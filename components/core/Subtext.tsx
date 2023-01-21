@@ -19,7 +19,7 @@ export const Subtext: React.FC<{
       style={{ marginTop: 2, marginRight: 10, cursor: "pointer", color: "white" }}
       className="material-symbols-outlined text-gray-500"
     >
-      info
+      campaign
     </span>
     <p
       className="text-xl font-bold"

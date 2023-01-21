@@ -12,9 +12,17 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+          />
+          <link
+            rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           />
-<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Parisienne&display=swap" rel="stylesheet" />        </Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Parisienne&display=swap"
+            rel="stylesheet"
+          />{" "}
+        </Head>
         <body>
           <Main />
           <NextScript />
