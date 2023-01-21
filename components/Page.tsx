@@ -12,7 +12,7 @@ export const Page: React.FC<{
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta property="og:image" content="static/thumbnail.jpeg" />
+        <meta property="og:image" content="static/thumbnail.png" />
         <link rel="icon" type="image/png" href="static/favicon.png" />
       </Head>
       <Menu />
