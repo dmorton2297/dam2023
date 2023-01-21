@@ -6,7 +6,7 @@ export const textContentEnglish = {
   noteFromCoupleLabel: "Note from couple",
   noteToCoupleLabel: "Note to the couple",
   pleaseReplyLabel: "Please reply to the RSVP below",
-  areYouAttending: "are you attending?",
+  areYouAttending: "are you attending",
   yes: "Yes",
   no: "No",
   thankyouForReplyingLabel: "Thank you for replying!",
