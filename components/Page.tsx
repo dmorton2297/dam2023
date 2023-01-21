@@ -12,7 +12,7 @@ export const Page: React.FC<{
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.icns" />
       </Head>
       <Menu />
       <div id={noHeightRestriction ? "no-wrap" : "page-wrap"}>{children}</div>
