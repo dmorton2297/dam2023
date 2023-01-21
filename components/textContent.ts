@@ -1,8 +1,8 @@
 export const textContentEnglish = {
   enterRsvpIdLabel:
-    "Please enter the number labeled as RSVP number. This number can be located on your invite, underneath the QR code. If you do not have this number, please reach out to dmorton2297@gmail.com.",
+    "Please enter the RSVP number located below the QR code. If you do not have this number, email Dan at dmorton2297@gmail.com.",
   rsvpNumberLabel: "RSVP Number",
-  findRsvpLabel: "Find RSVP",
+  findRsvpLabel: "Submit",
   noteFromCoupleLabel: "Note from couple",
   noteToCoupleLabel: "Note to the couple",
   pleaseReplyLabel: "Please reply to the RSVP below",
@@ -22,12 +22,12 @@ export const textContentEnglish = {
 
 export const textContentSpanish = {
   enterRsvpIdLabel:
-    "Ingrese el número etiquetado como número RSVP. Este número se puede ubicar en su invitación, debajo del código QR. Si no tiene este número, comuníquese con dmorton2297@gmail.com.",
+    "Ingrese el número RSVP que se encuentra debajo del código QR. Si no tiene este número, envíe un correo electrónico a Dan a dmorton2297@gmail.com.",
   rsvpNumberLabel: "Número RSVP",
-  findRsvpLabel: "Encuentra RSVP",
+  findRsvpLabel: "Entregar",
   noteFromCoupleLabel: "Nota de pareja",
   noteToCoupleLabel: "Nota a la pareja",
-  pleaseReplyLabel: "Por favor responda al RSVP a continuación.",
+  pleaseReplyLabel: "Por favor responda al RSVP debajo.",
   areYouAttending: "estas atendiendo",
   yes: "Sí",
   no: "No",

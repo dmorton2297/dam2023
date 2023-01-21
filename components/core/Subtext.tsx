@@ -13,6 +13,7 @@ export const Subtext: React.FC<{
       margin: "15px 0px",
       borderRadius: 10,
     }}
+    onClick={(e) => e.stopPropagation()}
   >
     <span
       style={{ marginTop: 2, marginRight: 10, cursor: "pointer", color: "white" }}

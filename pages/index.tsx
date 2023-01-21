@@ -4,6 +4,8 @@
   import { Page } from "../components/Page";
   import HomeContent from "../components/HomeContent";
 
+export const DEEPSPACE = 'DEEPSPACENINE';
+
 const Home: NextPage = () => {
   return (
     <Page

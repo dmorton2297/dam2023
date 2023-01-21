@@ -14,6 +14,10 @@ export const Menu: React.FC = () => {
         Wedding
       </Link>
       <Seperator />
+      <Link id="rsvp" className="p-8 menu-item font-serif" href="/event">
+        Rsvp
+      </Link>
+      <Seperator />
 
       <Link id="wedding-party" className="p-8 menu-item font-serif" href="/people">
         Wedding Party

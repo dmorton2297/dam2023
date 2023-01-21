@@ -11,6 +11,7 @@ import { Seperator } from "../../components/core/Seperator";
 import { Text } from "../../components/core/Text";
 import { Header } from "../../components/core/Header";
 import { Button } from "../../components/core/Button";
+import { DEEPSPACE } from "..";
 
 const Event: NextPage = () => {
   const [windowHeight, setWindowHeight] = useState<number>();
@@ -19,6 +20,7 @@ const Event: NextPage = () => {
   const [attendees, setAttendees] = useState<IAttendee[] | undefined>(
     undefined
   );
+  const [verified, setVerified] = useState(false);
   useEffect(() => {
     if (window) {
       setWindowHeight(window.innerHeight);
@@ -61,7 +63,7 @@ const Event: NextPage = () => {
         (x: string | undefined) => x !== undefined && x !== ""
       ),
       noteToGuests: values.noteToGuests,
-      inSpanish: values.inSpanish === 'yes',
+      inSpanish: values.inSpanish === "yes",
     };
 
     const response: AxiosResponse<IRSVP> = await axios.post(
@@ -72,6 +74,19 @@ const Event: NextPage = () => {
   };
 
   if (!windowWidth || !windowHeight) return <></>;
+
+  if (!verified) {
+    return (
+      <div>
+        <input
+          onChange={(value) =>
+            value.target.value === DEEPSPACE ? setVerified(true) : null
+          }
+          type="password"
+        ></input>
+      </div>
+    );
+  }
   return (
     <Page
       title="Dan and Adriana 2023"

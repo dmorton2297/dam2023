@@ -8,7 +8,10 @@ import { IRSVP } from "../../dal/Rsvp";
 import { Text } from "../../components/core/Text";
 import { Seperator } from "../../components/core/Seperator";
 import Link from "next/link";
-import { textContentEnglish, textContentSpanish } from "../../components/textContent";
+import {
+  textContentEnglish,
+  textContentSpanish,
+} from "../../components/textContent";
 import { Button } from "../../components/core/Button";
 
 const Event: NextPage = () => {
@@ -46,7 +49,7 @@ const Event: NextPage = () => {
     const id = values.rsvpId;
     const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}`);
     setRsvp(rsvp.data);
-    setShouldShowSpanish(rsvp.data.inSpanish)
+    setShouldShowSpanish(rsvp.data.inSpanish);
   };
 
   const handleReplyRsvp = async (values: any) => {
@@ -108,7 +111,9 @@ const Event: NextPage = () => {
                 style={{ marginBottom: 10 }}
                 onClick={() => setShouldShowSpanish((value) => !value)}
               >
-                {shouldShowSpanish ? "Toggle to english" : "Toggle to spanish"}
+                {shouldShowSpanish
+                  ? "Translate to english"
+                  : "Translate to spanish"}
               </Button>
             )}
             {!rsvp && (
@@ -136,12 +141,7 @@ const Event: NextPage = () => {
                     style={{ outline: "1px solid" }}
                   />
                   <hr style={{ marginTop: 10, marginBottom: 10 }} />
-                  <button
-                    type="submit"
-                    style={{ border: "1px solid black", padding: "5px 10px" }}
-                  >
-                    {textContent.findRsvpLabel}
-                  </button>
+                  <Button type="submit">{textContent.findRsvpLabel}</Button>
                 </Form>
               </Formik>
             )}

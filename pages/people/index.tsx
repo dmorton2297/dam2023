@@ -79,7 +79,7 @@ const Event: NextPage = () => {
                 </div>
                 <div className="p-4">
                   <Text style={{ textAlign: "center", marginBottom: 10 }}>
-                    Natalie Beihl
+                    Natalie Biehl
                   </Text>
                   <img
                     src="natalie.jpg"
@@ -99,7 +99,7 @@ const Event: NextPage = () => {
                 </div>
                 <div className="p-4">
                   <Text style={{ textAlign: "center", marginBottom: 10 }}>
-                    Katina Nicholes
+                    Katina Nicholas
                   </Text>
                   <img
                     src="katina.jpg"
@@ -109,7 +109,7 @@ const Event: NextPage = () => {
                 </div>
                 <div className="p-4">
                   <Text style={{ textAlign: "center", marginBottom: 10 }}>
-                    Mckenzie Stagnito
+                    Mackenzie Stagnito
                   </Text>
                   <img
                     src="mckenzie.jpg"

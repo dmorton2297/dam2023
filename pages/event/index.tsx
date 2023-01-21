@@ -19,7 +19,7 @@ const Event: NextPage = () => {
       description="Details on our upcoming wedding"
       noHeightRestriction
     >
-      <div style={{ width: '100%' }}>
+      <div style={{ width: "100%" }}>
         <InfoCard
           title="Adriana & Dan"
           style={{ marginLeft: 80, border: "none" }}
@@ -122,9 +122,12 @@ const Event: NextPage = () => {
               <Seperator />
               <ul>
                 <Subtext>
-                  <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
-                    Hampton Inn Chicago Downtown West Loop
+                  <Link href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1670446546264&key=GRP&app=resvlink">
+                    Courtyard by Marriott
                   </Link>
+                  <br />
+                  We have negotiated a rate for the dates May 12th - May 14th.
+                  2023. <br /> Clicking the link will get you access to the group rate.
                 </Subtext>
                 <Subtext>
                   <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl">
@@ -132,13 +135,13 @@ const Event: NextPage = () => {
                   </Link>
                 </Subtext>
                 <Subtext>
-                  <Link href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago">
-                    The Hoxton
+                  <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
+                    Hampton Inn Chicago Downtown West Loop
                   </Link>
                 </Subtext>
                 <Subtext>
-                  <Link href="https://www.marriott.com/en-us/hotels/chimm-courtyard-chicago-downtown-magnificent-mile/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">
-                    Courtyard by Marriott
+                  <Link href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago">
+                    The Hoxton
                   </Link>
                 </Subtext>
               </ul>
@@ -163,7 +166,11 @@ const Event: NextPage = () => {
             <InfoCard title="Registry">
               <Text>Click the button below to view the couples registry</Text>
               <Seperator />
-              <a style={{ color: 'black' }} href="https://www.crateandbarrel.com/gift-registry/adriana-dan-morton/r6551952" className="pb-3 underline text-blue-500">
+              <a
+                style={{ color: "black" }}
+                href="https://www.crateandbarrel.com/gift-registry/adriana-dan-morton/r6551952"
+                className="pb-3 underline text-blue-500"
+              >
                 <Button style={{ marginTop: 10 }}>Registry</Button>
               </a>
             </InfoCard>

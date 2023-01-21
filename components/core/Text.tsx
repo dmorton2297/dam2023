@@ -11,7 +11,14 @@ export const Text: React.FC<{
       ...style,
       fontWeight: 200,
     }}
-    onClick={onClick ? (e) => onClick(e) : undefined}
+    onClick={
+      onClick
+        ? (e) => {
+            e.stopPropagation();
+            onClick(e);
+          }
+        : undefined
+    }
   >
     {children}
   </p>
