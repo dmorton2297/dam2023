@@ -83,7 +83,7 @@ const Event: NextPage = () => {
   return (
     <Page
       title="Dan and Adriana 2023"
-      description="Details on our upcoming wedding"
+      description="Join us to celebrate the wedding of Adriana Davila and Dan Morton"
     >
       <div
         style={{

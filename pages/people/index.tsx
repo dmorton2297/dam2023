@@ -15,7 +15,7 @@ const Event: NextPage = () => {
   return (
     <Page
       title="Adriana & Dan"
-      description="Details on our upcoming wedding"
+      description="Adriana and Dan's wedding party"
       noHeightRestriction
     >
       <div>
