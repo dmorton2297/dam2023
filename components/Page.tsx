@@ -12,8 +12,8 @@ export const Page: React.FC<{
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta property="og:image" content="1.jpg" />
-        <link rel="icon" type="image/png" href="favicon.png" />
+        <meta property="og:image" content="static/thumbnail.jpeg" />
+        <link rel="icon" type="image/png" href="static/favicon.png" />
       </Head>
       <Menu />
       <div id={noHeightRestriction ? "no-wrap" : "page-wrap"}>{children}</div>
