@@ -98,7 +98,7 @@ const HomeContent: React.FC = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.png)",
+              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
             backgroundSize: "cover",
             boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.2)",
           }}
