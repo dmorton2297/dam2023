@@ -48,7 +48,7 @@ const Event: NextPage = () => {
 
   const handleSubmit = async (values: any) => {
     const id = values.rsvpId;
-    const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}`);
+    const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}&shouldGenerate=true`);
     setRsvp(rsvp.data);
   };
 
@@ -57,7 +57,6 @@ const Event: NextPage = () => {
     noteToGuests: string | undefined;
     inSpanish?: string | undefined;
   }) => {
-    console.log(values.inSpanish);
     const payload = {
       attendees: values.attendees.filter(
         (x: string | undefined) => x !== undefined && x !== ""

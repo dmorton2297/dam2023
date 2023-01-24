@@ -1,10 +1,22 @@
 import { ObjectId } from "mongodb";
 import { getDbClient } from "./DBClient";
+import {
+  sendMessageToAdriana,
+  sendMessageToDan,
+  sendMessageToRecipient,
+} from "./Twilio";
+
+export interface IAttendee {
+  name: string;
+  attending: boolean;
+  rsvpId?: string;
+  phoneNumber?: string;
+}
 
 export interface IRSVP {
   _id: ObjectId;
   rsvpId: string;
-  attendees: { name: string; attending: boolean }[];
+  attendees: IAttendee[];
   noteToGuests: string | undefined;
   noteToCouple: string;
   repliedTo: boolean;
@@ -12,18 +24,15 @@ export interface IRSVP {
   inSpanish?: boolean;
 }
 
-export interface IAttendee {
-  name: string;
-  attending: boolean;
-  rsvpId?: string;
-}
-
-export const getRsvpBySuppliedNumber = async (suppliedNumber: string) => {
+export const getRsvpBySuppliedNumber = async (
+  suppliedNumber: string,
+  shouldGenerate?: boolean
+) => {
   let response = null;
   const dbCLient = await getDbClient();
   const collection = dbCLient.db().collection("rsvp");
   const other = await collection.findOne({ rsvpId: suppliedNumber });
-  if (!other) {
+  if (shouldGenerate && !other) {
     response = await collection.insertOne({
       rsvpId: suppliedNumber,
     } as IRSVP);
@@ -36,7 +45,7 @@ export const getRsvpBySuppliedNumber = async (suppliedNumber: string) => {
 export const updateRsvp = async (
   id: string,
   body: {
-    attendees: { name: string; attending: boolean }[];
+    attendees: { name: string; attending: boolean; phoneNumber: string }[];
     note: string | undefined;
   }
 ) => {
@@ -49,10 +58,29 @@ export const updateRsvp = async (
       repliedTo: true,
     },
   };
-  await dbCLient
-    .db()
-    .collection("rsvp")
-    .updateOne(filter, updateDocument);
+  await dbCLient.db().collection("rsvp").updateOne(filter, updateDocument);
+  const attendessString = body.attendees.map(
+    (x) => `${x.name} is ${x.attending ? "ATTENDING" : "NOT ATTENDING\n"}`
+  );
+  sendMessageToDan(`🥵RSVP updated🥵\n${attendessString}`);
+  sendMessageToAdriana(`🥵RSVP updated🥵\n${attendessString}`);
+  body.attendees.forEach(async (x) => {
+    if (x.attending && x.phoneNumber) {
+      await sendMessageToRecipient(
+        "💙 Thank you for RSVP'ing yes to Adriana and Dan's wedding!",
+        x.phoneNumber
+      );
+      await sendMessageToRecipient(
+        "✨ To view information about the reception, ceremony, and group hotel rates, please visit https://dam2023.com/event",
+        x.phoneNumber
+      );
+      await sendMessageToRecipient(
+        "✍️ To update your RSVP please visit https://dam2023.com/rsvp",
+        x.phoneNumber
+      );
+    }
+  });
+
   await dbCLient.close();
   return getRsvpBySuppliedNumber(id);
 };
@@ -88,7 +116,6 @@ export const populateRSVPData = async (
 
 export const getAllAttendeeData = async () => {
   const dbClient = await getDbClient();
-  console.log("in here");
   const cursor = dbClient.db().collection("rsvp").find<IRSVP>({});
 
   const results: IAttendee[] = [];
@@ -96,7 +123,6 @@ export const getAllAttendeeData = async () => {
     results.push(...x.attendees.map((a) => ({ ...a, rsvpId: x.rsvpId })));
     return true;
   });
-  console.log(results);
-  const attendees = [];
+  dbClient.close();
   return results;
 };

@@ -1,12 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAllAttendeeData, getRsvpBySuppliedNumber, populateRSVPData, updateRsvp } from "../../dal/Rsvp";
+import {
+  getAllAttendeeData,
+  getRsvpBySuppliedNumber,
+  populateRSVPData,
+  updateRsvp,
+} from "../../dal/Rsvp";
 
 export default async function rsvpHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const {
-    query: { id },
+    query: { id, shouldGenerate },
     body,
     method,
   } = req;
@@ -18,7 +23,10 @@ export default async function rsvpHandler(
         res.status(200).json(getResult);
         break;
       }
-      const getResult = await getRsvpBySuppliedNumber(id as string);
+      const getResult = await getRsvpBySuppliedNumber(
+        id as string,
+        !!shouldGenerate && shouldGenerate === "true"
+      );
       // Get data from your database
       res.status(200).json(getResult);
       break;

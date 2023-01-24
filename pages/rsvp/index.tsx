@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import { Page } from "../../components/Page";
@@ -13,6 +13,7 @@ import {
   textContentSpanish,
 } from "../../components/textContent";
 import { Button } from "../../components/core/Button";
+import { SpinnerCircular } from "spinners-react";
 
 const Event: NextPage = () => {
   const [windowHeight, setWindowHeight] = useState<number>();
@@ -20,6 +21,7 @@ const Event: NextPage = () => {
   const [rsvp, setRsvp] = useState<IRSVP | null>(null);
   const [updateRsvp, setUpdateRsvp] = useState(false);
   const [shouldShowSpanish, setShouldShowSpanish] = useState(rsvp?.inSpanish);
+  const [loading, setLoading] = useState(false);
 
   const textContent = shouldShowSpanish
     ? textContentSpanish
@@ -40,23 +42,31 @@ const Event: NextPage = () => {
       object({
         name: string(),
         attending: string(),
+        phoneNumber: string().max(
+          10,
+          "Must be a valid phone number (less than 10 digits, excluding country code)."
+        ),
+        showPhoneNumber: string(),
       })
     ),
     note: string().optional(),
   });
 
   const handleSubmit = async (values: any) => {
+    setLoading(true);
     const id = values.rsvpId;
     const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}`);
+    setLoading(false);
     setRsvp(rsvp.data);
     setShouldShowSpanish(rsvp.data.inSpanish);
   };
 
   const handleReplyRsvp = async (values: any) => {
-    console.log(values.note);
+    setLoading(true);
     const mapped = values.attendees.map((x: any) => ({
       ...x,
       attending: x.attending === "YES",
+      phoneNumber: x.phoneNumber,
     }));
     const response: AxiosResponse<IRSVP> = await axios.patch(
       `/api/rsvp?id=${rsvp?.rsvpId}`,
@@ -65,6 +75,7 @@ const Event: NextPage = () => {
         attendees: mapped,
       }
     );
+    setLoading(false);
     setRsvp(response.data);
     setUpdateRsvp(false);
   };
@@ -79,7 +90,6 @@ const Event: NextPage = () => {
     })),
   };
 
-  console.log(initialResponseValues);
   return (
     <Page
       title="Dan and Adriana 2023"
@@ -141,7 +151,14 @@ const Event: NextPage = () => {
                     style={{ outline: "1px solid" }}
                   />
                   <hr style={{ marginTop: 10, marginBottom: 10 }} />
-                  <Button type="submit">{textContent.findRsvpLabel}</Button>
+                  <Button type="submit">
+                    <div className="flex">
+                      {textContent.submit}
+                      {loading && (
+                          <SpinnerCircular style={{ width: 25, height: 25, color: 'blue', paddingLeft: 8 }} />
+                          )}
+                    </div>
+                  </Button>
                 </Form>
               </Formik>
             )}
@@ -153,10 +170,13 @@ const Event: NextPage = () => {
                   borderColor: "rgba(135, 157, 186)",
                   boxShadow: "1px 2px rgba(135, 157, 186, 0.5)",
                   display: "flex",
-                  alignContent: 'center'
+                  alignContent: "center",
                 }}
               >
-                <span className="material-symbols-outlined" style={{ marginTop: 3, marginRight: 10 }}>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ marginTop: 3, marginRight: 10 }}
+                >
                   mail
                 </span>
 
@@ -198,6 +218,49 @@ const Event: NextPage = () => {
                           <option value="YES">{textContent.yes}</option>
                           <option value="NO">{textContent.no}</option>
                         </Field>
+                        <div>
+                          <Text>
+                            Enter phone number to recieve text updates about the
+                            wedding (optional)
+                          </Text>
+                          <div className="flex">
+                            <Text
+                              style={{
+                                marginTop: 10,
+                                paddingRight: 8,
+                                paddingTop: 2,
+                                paddingLeft: 8,
+                                outline: "1px solid black",
+                                height: 34,
+                              }}
+                            >
+                              +1
+                            </Text>
+                            <div>
+                              <Field
+                                name={`attendees[${i}].phoneNumber`}
+                                as="input"
+                                style={{
+                                  outline: "1px solid black",
+                                  padding: "5px 10px",
+                                  marginTop: 10,
+                                }}
+                                key={i}
+                                placeholder="Phone number..."
+                                type="number"
+                                me
+                              />
+                              <br />
+                            </div>
+                          </div>
+                          <div style={{ color: "red" }}>
+                            {" "}
+                            <ErrorMessage
+                              name={`attendees[${i}].phoneNumber`}
+                            />
+                          </div>
+                        </div>
+                        {i !== rsvp.attendees.length - 1 && <Seperator />}
                       </>
                     ))}
 
@@ -213,13 +276,20 @@ const Event: NextPage = () => {
                         width: "100%",
                         padding: 10,
                       }}
+                      placeholder="Enter note..."
+                      errorText="test"
                     />
                     <hr style={{ marginTop: 10, marginBottom: 10 }} />
                     <button
                       type="submit"
                       style={{ border: "1px solid black", padding: "5px 10px" }}
                     >
-                      {textContent.submit}
+                      <div className="flex">
+                        {textContent.submit}
+                        {loading && (
+                          <SpinnerCircular style={{ width: 25, height: 25, color: 'blue', paddingLeft: 8 }} />
+                          )}
+                      </div>
                     </button>
                   </Form>
                 </Formik>
@@ -274,7 +344,7 @@ const Event: NextPage = () => {
             {rsvp && !rsvp.attendees && <Text>{textContent.errorText}</Text>}
           </div>
         </div>
-        <Text style={{ marginBottom: 20, marginTop: 40 }}>
+        <Text style={{ marginBottom: 25, marginTop: 25 }}>
           {textContent.issuesText}
         </Text>
       </div>

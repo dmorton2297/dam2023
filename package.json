@@ -19,6 +19,8 @@
     "react-burger-menu": "^3.0.8",
     "react-dom": "18.2.0",
     "react-responsive-carousel": "^3.2.23",
+    "spinners-react": "^1.0.7",
+    "twilio": "^3.84.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
