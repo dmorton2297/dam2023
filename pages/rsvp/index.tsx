@@ -86,7 +86,7 @@ const Event: NextPage = () => {
     note: rsvp?.noteToCouple,
     attendees: rsvp?.attendees?.map((x: any) => ({
       ...x,
-      attending: x.attending ? "YES" : "NO",
+      attending: "YES",
     })),
   };
 
@@ -155,8 +155,15 @@ const Event: NextPage = () => {
                     <div className="flex">
                       {textContent.submit}
                       {loading && (
-                          <SpinnerCircular style={{ width: 25, height: 25, color: 'blue', paddingLeft: 8 }} />
-                          )}
+                        <SpinnerCircular
+                          style={{
+                            width: 25,
+                            height: 25,
+                            color: "blue",
+                            paddingLeft: 8,
+                          }}
+                        />
+                      )}
                     </div>
                   </Button>
                 </Form>
@@ -218,49 +225,6 @@ const Event: NextPage = () => {
                           <option value="YES">{textContent.yes}</option>
                           <option value="NO">{textContent.no}</option>
                         </Field>
-                        <div>
-                          <Text>
-                            Enter phone number to recieve text updates about the
-                            wedding (optional)
-                          </Text>
-                          <div className="flex">
-                            <Text
-                              style={{
-                                marginTop: 10,
-                                paddingRight: 8,
-                                paddingTop: 2,
-                                paddingLeft: 8,
-                                outline: "1px solid black",
-                                height: 34,
-                              }}
-                            >
-                              +1
-                            </Text>
-                            <div>
-                              <Field
-                                name={`attendees[${i}].phoneNumber`}
-                                as="input"
-                                style={{
-                                  outline: "1px solid black",
-                                  padding: "5px 10px",
-                                  marginTop: 10,
-                                }}
-                                key={i}
-                                placeholder="Phone number..."
-                                type="number"
-                                me
-                              />
-                              <br />
-                            </div>
-                          </div>
-                          <div style={{ color: "red" }}>
-                            {" "}
-                            <ErrorMessage
-                              name={`attendees[${i}].phoneNumber`}
-                            />
-                          </div>
-                        </div>
-                        {i !== rsvp.attendees.length - 1 && <Seperator />}
                       </>
                     ))}
 
@@ -279,6 +243,45 @@ const Event: NextPage = () => {
                       placeholder="Enter note..."
                       errorText="test"
                     />
+                    <div style={{ paddingTop: 20 }}>
+                      <Text>
+                        <strong>{textContent.phoneNumLabel}</strong> (
+                        {textContent.optional})
+                      </Text>
+                      <Text>
+                        {textContent.textMessageInfo} <br />
+                      </Text>
+                      <div className="flex">
+                        <Text
+                          style={{
+                            marginTop: 10,
+                            paddingRight: 8,
+                            paddingTop: 2,
+                            paddingLeft: 8,
+                            outline: "1px solid black",
+                            height: 34,
+                          }}
+                        >
+                          +1
+                        </Text>
+                        <Field
+                          name={`attendees[0].phoneNumber`}
+                          as="input"
+                          style={{
+                            outline: "1px solid black",
+                            padding: "5px 10px",
+                            marginTop: 10,
+                          }}
+                          placeholder="Phone number..."
+                          type="number"
+                        />
+                        <br />
+                      </div>
+                    </div>
+                    <div style={{ color: "red" }}>
+                      {" "}
+                      <ErrorMessage name={`attendees[0].phoneNumber`} />
+                    </div>
                     <hr style={{ marginTop: 10, marginBottom: 10 }} />
                     <button
                       type="submit"
@@ -287,8 +290,15 @@ const Event: NextPage = () => {
                       <div className="flex">
                         {textContent.submit}
                         {loading && (
-                          <SpinnerCircular style={{ width: 25, height: 25, color: 'blue', paddingLeft: 8 }} />
-                          )}
+                          <SpinnerCircular
+                            style={{
+                              width: 25,
+                              height: 25,
+                              color: "blue",
+                              paddingLeft: 8,
+                            }}
+                          />
+                        )}
                       </div>
                     </button>
                   </Form>
