@@ -1,6 +1,6 @@
 export const textContentEnglish = {
   enterRsvpIdLabel:
-    "Please enter the RSVP number located below on your invitation, below the QR code. If you do not have this number, email Dan at dmorton0513@gmail.com.",
+    "Please enter the RSVP number located on your invitation, below the QR code. If you do not have this number, email Dan at dmorton0513@gmail.com.",
   rsvpNumberLabel: "RSVP Number",
   findRsvpLabel: "Submit",
   noteFromCoupleLabel: "Note from couple",
