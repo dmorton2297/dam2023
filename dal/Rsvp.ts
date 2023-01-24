@@ -60,22 +60,17 @@ export const updateRsvp = async (
   };
   await dbCLient.db().collection("rsvp").updateOne(filter, updateDocument);
   const attendessString = body.attendees.map(
-    (x) => `${x.name} is ${x.attending ? "ATTENDING" : "NOT ATTENDING\n"}`
+    (x) =>
+      `${x.attending ? "✅" : "❌"} ${x.name} is ${
+        x.attending ? "ATTENDING" : "NOT ATTENDING"
+      }`
   );
-  sendMessageToDan(`🥵RSVP updated🥵\n${attendessString}`);
-  sendMessageToAdriana(`🥵RSVP updated🥵\n${attendessString}`);
+  sendMessageToDan(`ℹ️ RSVP RESPONDED TO \n${attendessString.join('\n')}`);
+  sendMessageToAdriana(`ℹ️ RSVP RESPONDED TO \n${attendessString}`);
   body.attendees.forEach(async (x) => {
     if (x.attending && x.phoneNumber) {
       await sendMessageToRecipient(
-        "💙 Thank you for RSVP'ing yes to Adriana and Dan's wedding!",
-        x.phoneNumber
-      );
-      await sendMessageToRecipient(
-        "✨ To view information about the reception, ceremony, and group hotel rates, please visit https://dam2023.com/event",
-        x.phoneNumber
-      );
-      await sendMessageToRecipient(
-        "✍️ To update your RSVP please visit https://dam2023.com/rsvp",
+        `💙 Thank you for RSVP'ing yes to Adriana and Dan's wedding!\n\n✨ To view information about the reception, ceremony, and group hotel rates, please visit https://dam2023.com/event\n\n✍️ To update your RSVP please visit https://dam2023.com/rsvp\n\nWe look forward to celebrating our day with you!`,
         x.phoneNumber
       );
     }
