@@ -34,12 +34,6 @@ const HomeContent: React.FC = () => {
         duration: 1.5,
         stagger: 0.1,
       });
-      tl.from("#test", {
-        background: "transparent",
-        color: "transparent",
-        duration: 2,
-        delay: 2,
-      });
     }
   });
 
@@ -75,7 +69,6 @@ const HomeContent: React.FC = () => {
       >
         <Link href="/event">
           <div
-            id="test"
             className="mr-1 text-stone-100 flex flex-col justify-center cursor-pointer hover:bg-red-600"
             style={{
               width: 100,
