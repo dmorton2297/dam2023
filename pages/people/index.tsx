@@ -69,7 +69,7 @@ const Event: NextPage = () => {
                 </div>
                 <div className="p-4">
                   <Text style={{ textAlign: "center", marginBottom: 10 }}>
-                    William Iacullo
+                    William Iacullo (Bridesman)
                   </Text>
                   <img
                     src="william.jpg"
