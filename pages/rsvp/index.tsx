@@ -104,7 +104,7 @@ const Event: NextPage = () => {
         className="bg-white flex-col"
       >
         <p className="font-serif text-6xl py-4 my-4">
-          Dan &<br /> Adriana
+          Adriana &<br />Dan
         </p>
         <hr />
         <div className="flex justify-center">
