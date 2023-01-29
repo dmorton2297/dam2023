@@ -122,7 +122,7 @@ const Event: NextPage = () => {
               <Seperator />
               <ul>
                 <Subtext>
-                  <Link href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1670446546264&key=GRP&app=resvlink">
+                  <Link href="https://www.marriott.com/events/start.mi?id=1670446546264&key=GRP">
                     Courtyard by Marriott
                   </Link>
                   <br />
