@@ -10,7 +10,7 @@ export const textContentEnglish = {
   yes: "Yes",
   no: "No",
   thankyouForReplyingLabel: "Thank you for replying!",
-  thankyouForForReplyingText: "thank you for replaying",
+  thankyouForForReplyingText: "thank you for replying",
   submit: "Submit",
   issuesText: "Issues? Reach out to Dan at dmorton0513@gmail.com",
   none: "None",
