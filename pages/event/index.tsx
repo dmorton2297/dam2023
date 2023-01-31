@@ -218,7 +218,7 @@ const Event: NextPage = () => {
                 undefined,
                 { shallow: true }
               )}
-              style={{ marginLeft: 10 }}
+              style={{ marginLeft: 10, marginBottom: 30 }}
             >Return to full website</Button>
             <InfoCard title="Registry" hidden={!!focusedSection}>
               <Text>Click the button below to view the couples registry</Text>

@@ -48,7 +48,9 @@ const Event: NextPage = () => {
 
   const handleSubmit = async (values: any) => {
     const id = values.rsvpId;
-    const rsvp: AxiosResponse<IRSVP> = await axios.get(`/api/rsvp?id=${id}&shouldGenerate=true`);
+    const rsvp: AxiosResponse<IRSVP> = await axios.get(
+      `/api/rsvp?id=${id}&shouldGenerate=true`
+    );
     setRsvp(rsvp.data);
   };
 
@@ -217,7 +219,7 @@ const Event: NextPage = () => {
               onClick={() => {
                 const headers = ["Name", "Attending", "RSVP ID"];
                 const data =
-                  attendees?.map((x) => [x.name, x.attending, x.rsvpId]) || [];
+                  attendees?.map((x) => [x.name, x.attending, x.rsvpId, x.phoneNumber]) || [];
                 let csvContent = "data:text/csv;charset=utf-8,";
                 [headers, ...data].forEach((d) => {
                   let row = d.join(",");
@@ -234,7 +236,7 @@ const Event: NextPage = () => {
                 <Text style={{ marginLeft: 10 }}>
                   <strong>{a.name}</strong> is{" "}
                   <strong>{a.attending ? "ATTENDING" : "NOT ATTENDING"}</strong>{" "}
-                  (RSVP ID: {a.rsvpId})
+                  {a.phoneNumber ? a.phoneNumber : ""} (RSVP ID: {a.rsvpId})
                 </Text>
               </div>
             ))}
