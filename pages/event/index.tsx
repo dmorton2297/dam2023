@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Page } from "../../components/Page";
 import { InfoCard } from "../../components/core/InfoCard";
 import { Text } from "../../components/core/Text";
@@ -11,8 +11,19 @@ import { Link } from "../../components/core/Link";
 import NextLink from "next/link";
 import { Subtext } from "../../components/core/Subtext";
 import { Button } from "../../components/core/Button";
+import { useRouter } from "next/router";
 
 const Event: NextPage = () => {
+  const { asPath, push } = useRouter();
+  const [focusedSection, setFocusedSection] = useState<string | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const focused = asPath.split("#")[1];
+    setFocusedSection(focused);
+  }, [asPath]);
+
   return (
     <Page
       title="Adriana & Dan"
@@ -34,7 +45,17 @@ const Event: NextPage = () => {
         </InfoCard>
         <div className="flex justify-center">
           <div style={{ maxWidth: 1000, flexGrow: 1 }}>
-            <InfoCard title="Ceremony" open>
+            <InfoCard
+              title="Ceremony"
+              open={
+                (focusedSection && focusedSection === "Ceremony") ||
+                !focusedSection
+              }
+              hidden={
+                !(focusedSection && focusedSection === "Ceremony") &&
+                !!focusedSection
+              }
+            >
               <Subtext>
                 Fourth Presbyterian Church -{" "}
                 <Link
@@ -69,7 +90,17 @@ const Event: NextPage = () => {
                 from using cell phones and cameras during the cermony.
               </Text>
             </InfoCard>
-            <InfoCard title="Reception" open={true}>
+            <InfoCard
+              title="Reception"
+              open={
+                (focusedSection && focusedSection === "Reception") ||
+                !focusedSection
+              }
+              hidden={
+                !(focusedSection && focusedSection === "Reception") &&
+                !!focusedSection
+              }
+            >
               <Subtext>
                 Carnivale -{" "}
                 <Link
@@ -115,7 +146,17 @@ const Event: NextPage = () => {
               </Text>
               <Seperator />
             </InfoCard>
-            <InfoCard title="Hotels" open={true}>
+            <InfoCard
+              title="Hotels"
+              open={
+                (focusedSection && focusedSection === "Hotels") ||
+                !focusedSection
+              }
+              hidden={
+                !(focusedSection && focusedSection === "Hotels") &&
+                !!focusedSection
+              }
+            >
               <Text>
                 The following hotels are in close proximity to the reception.{" "}
                 <br /> <br />
@@ -152,7 +193,7 @@ const Event: NextPage = () => {
                 River North / West loop neighborhoods.
               </Text>
             </InfoCard>
-            <InfoCard title="Rsvp">
+            <InfoCard title="Rsvp" hidden={!!focusedSection}>
               <Text>
                 Click the button below and have your invitation handy to update
                 your RSVP.
@@ -162,14 +203,24 @@ const Event: NextPage = () => {
                 <Button style={{ marginTop: 10 }}>Retrieve my RSVP</Button>
               </NextLink>
             </InfoCard>
-            <InfoCard title="Wedding Party">
+            <InfoCard title="Wedding Party" hidden={!!focusedSection}>
               <Text>Click the button below to view the wedding party</Text>
               <Seperator />
               <NextLink href="/people" className="pb-3 underline text-blue-500">
                 <Button style={{ marginTop: 10 }}>Wedding Party</Button>
               </NextLink>
             </InfoCard>
-            <InfoCard title="Registry">
+            <Button
+              onClick={() => push(
+                {
+                  hash: ''
+                },
+                undefined,
+                { shallow: true }
+              )}
+              style={{ marginLeft: 10 }}
+            >Return to full website</Button>
+            <InfoCard title="Registry" hidden={!!focusedSection}>
               <Text>Click the button below to view the couples registry</Text>
               <Seperator />
               <a

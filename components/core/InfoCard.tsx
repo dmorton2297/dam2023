@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "./Header";
 import { SubHeader } from "./SubHeader";
 
@@ -9,11 +9,30 @@ export const InfoCard: React.FC<{
   open?: boolean;
   noToggle?: boolean;
   style?: React.CSSProperties;
-}> = ({ children, title, noToggle, open: openProp, style, largeTitle }) => {
+  hidden?: boolean;
+  setFocused?: (section: string) => void;
+}> = ({ children, title, noToggle, open: openProp, style, largeTitle, setFocused, hidden }) => {
   const [open, setOpen] = useState(!!noToggle || openProp);
+
+  useEffect(() => {
+    if (openProp) {
+      setOpen(openProp);
+    }
+  }, [openProp])
+
+  if (hidden) return null;
   return (
     <div
-      onClick={() => (!noToggle ? setOpen((value) => !value) : null)}
+      onClick={
+        !noToggle
+          ? () => {
+              setOpen((value) => !value);
+              if (setFocused) {
+                setFocused(title);
+              }
+            }
+          : undefined
+      }
       style={{
         ...style,
         height: open ? "unset" : 72,
