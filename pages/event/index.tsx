@@ -77,7 +77,7 @@ const Event: NextPage = () => {
                 lots and street parking near the church,
                 <br /> we encourage guests to plan ahead and carpool with family
                 members to make parking easy. <br /> You can reserve spots via
-                SportHero to revieve the best rates.
+                SportHero to recieve the best rates.
               </Text>
               <Seperator />
               <Text>
