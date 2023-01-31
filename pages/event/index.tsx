@@ -117,34 +117,40 @@ const Event: NextPage = () => {
             </InfoCard>
             <InfoCard title="Hotels" open={true}>
               <Text>
-                The following hotels are in close proximity to the reception.
+                The following hotels are in close proximity to the reception.{" "}
+                <br /> <br />
+                We have negotiated a rates for the dates May 12th - 14th 2023.{" "}
+                <br /> Clicking either link will get you access to the group
+                rates.
               </Text>
               <Seperator />
               <ul>
                 <Subtext>
                   <Link href="https://www.marriott.com/events/start.mi?id=1670446546264&key=GRP">
-                    Courtyard by Marriott
+                    Courtyard by Marriott Chicago Downtown/Magnificent Mile
+                  </Link>
+                  <br style={{ marginBottom: 5 }} />
+                  <Link href="https://goo.gl/maps/e9ATF9hV75hdRwnHA">
+                    View on Google Maps
                   </Link>
                   <br />
-                  We have negotiated a rate for the dates May 12th - May 14th.
-                  2023. <br /> Clicking the link will get you access to the group rate.
+                  <strong>More affordable</strong>
                 </Subtext>
                 <Subtext>
-                  <Link href="https://www.hyatt.com/en-US/hotel/illinois/hyatt-house-chicago-west-loop-fulton-market/chixl?src=corp_lclb_gmb_seo_chixl">
-                    Hyatt House Chicago / West Loop-Fulton Market
+                  <Link href="https://book.passkey.com/gt/219062776?gtid=ee328a1dbda0eb1b0308321891c7b6d&mobile=true&dw=428">
+                    The Westin Chicago River North
                   </Link>
-                </Subtext>
-                <Subtext>
-                  <Link href="https://www.hilton.com/en/hotels/chiwxhx-hampton-chicago-downtown-west-loop/?SEO_id=GMB-AMER-HX-CHIWXHX&y_source=1_MzgxMDg4OC03MTUtbG9jYXRpb24ud2Vic2l0ZQ==">
-                    Hampton Inn Chicago Downtown West Loop
-                  </Link>
-                </Subtext>
-                <Subtext>
-                  <Link href="https://thehoxton.com/chicago/?utm_source=google&utm_medium=local&utm_campaign=hotel-thehoxtonchicago">
-                    The Hoxton
+                  <br style={{ marginBottom: 5 }} />
+                  <Link href="https://goo.gl/maps/pxGKHEMJbvhrQoV59">
+                    View on Google Maps
                   </Link>
                 </Subtext>
               </ul>
+              <Text>
+                You are also welcome to stay at any hotel in the Chicago area.
+                There are many great options, we recommend staying close to the
+                River North / West loop neighborhoods.
+              </Text>
             </InfoCard>
             <InfoCard title="Rsvp">
               <Text>
