@@ -210,16 +210,22 @@ const Event: NextPage = () => {
                 <Button style={{ marginTop: 10 }}>Wedding Party</Button>
               </NextLink>
             </InfoCard>
-            <Button
-              onClick={() => push(
-                {
-                  hash: ''
-                },
-                undefined,
-                { shallow: true }
-              )}
-              style={{ marginLeft: 10, marginBottom: 30 }}
-            >Return to full website</Button>
+            {!!focusedSection && (
+              <Button
+                onClick={() =>
+                  push(
+                    {
+                      hash: "",
+                    },
+                    undefined,
+                    { shallow: true }
+                  )
+                }
+                style={{ marginLeft: 10, marginBottom: 30 }}
+              >
+                Return to full website
+              </Button>
+            )}
             <InfoCard title="Registry" hidden={!!focusedSection}>
               <Text>Click the button below to view the couples registry</Text>
               <Seperator />
