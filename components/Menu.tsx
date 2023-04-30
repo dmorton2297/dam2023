@@ -33,6 +33,15 @@ export const Menu: React.FC = () => {
       </Link>
       <Seperator />
       <Link
+        id="travel-info"
+        className="p-8 menu-item font-serif"
+        href="/travel-info.pdf"
+        download="travelinfo"
+      >
+        Parking guide
+      </Link>
+      <Seperator />
+      <Link
         id="invitation"
         className="p-8 menu-item font-serif"
         href="/invitation.pdf"
