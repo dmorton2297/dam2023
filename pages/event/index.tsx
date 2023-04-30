@@ -159,15 +159,11 @@ const Event: NextPage = () => {
             >
               <Text>
                 The following hotels are in close proximity to the reception.{" "}
-                <br /> <br />
-                We have negotiated a rates for the dates May 12th - 14th 2023.{" "}
-                <br /> Clicking either link will get you access to the group
-                rates.
               </Text>
               <Seperator />
               <ul>
                 <Subtext>
-                  <Link href="https://www.marriott.com/events/start.mi?id=1670446546264&key=GRP">
+                  <Link href="https://www.marriott.com/en-us/hotels/chimm-courtyard-chicago-downtown-magnificent-mile/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">
                     Courtyard by Marriott Chicago Downtown/Magnificent Mile
                   </Link>
                   <br style={{ marginBottom: 5 }} />
@@ -178,7 +174,7 @@ const Event: NextPage = () => {
                   <strong>More affordable</strong>
                 </Subtext>
                 <Subtext>
-                  <Link href="https://book.passkey.com/gt/219062776?gtid=ee328a1dbda0eb1b0308321891c7b6d&mobile=true&dw=428">
+                  <Link href="\https://www.marriott.com/en-us/hotels/chino-the-westin-chicago-river-north/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">
                     The Westin Chicago River North
                   </Link>
                   <br style={{ marginBottom: 5 }} />
