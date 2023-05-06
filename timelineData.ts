@@ -1,4 +1,4 @@
-import { TimelineItem } from "../../components/core/Timeline";
+import { TimelineItem } from "./components/core/Timeline";
 
 export const TIMELINE_DATA: TimelineItem[] = [
     {

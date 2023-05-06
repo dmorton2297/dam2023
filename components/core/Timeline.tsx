@@ -3,7 +3,7 @@ import { Text } from "./Text";
 import {
   formatDateTime,
   percentageComplete,
-} from "../../pages/itinerary/utils";
+} from "../../utils";
 
 export interface TimelineItem {
   title: string;

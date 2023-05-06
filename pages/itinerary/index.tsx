@@ -6,7 +6,7 @@ import { SubHeader } from "../../components/core/SubHeader";
 import { Seperator } from "../../components/core/Seperator";
 import { Text } from "../../components/core/Text";
 import Timeline from "../../components/core/Timeline";
-import { TIMELINE_DATA } from "./timelineData";
+import { TIMELINE_DATA } from "../../timelineData";
 
 export const Itinerary = () => {
   return (
