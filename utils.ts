@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-const CURRENT_MOMENT_OVERRIDE = '2023-05-13T19:00:10-05:00'
+const CURRENT_MOMENT_OVERRIDE = null
 
 export const formatDateTime = (dateTime?: Date) => {
   if (!dateTime) return null;
@@ -12,7 +12,7 @@ export const percentageComplete = (
   endDateTime?: Date
 ) => {
   if (!startDateTime || !endDateTime) return 0;
-  const currentMoment = new Date(CURRENT_MOMENT_OVERRIDE);
+  const currentMoment = new Date();
   if (currentMoment.getTime() > endDateTime.getTime()) return 1;
   const timeElapsedSinceStartAndCurrent =
     currentMoment.getTime() - startDateTime.getTime();
