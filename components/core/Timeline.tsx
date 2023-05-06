@@ -62,7 +62,7 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
             }}
           />
         </div>
-        <Text style={{ marginTop: -8, fontSize: 14 }}>{item.title}</Text>
+        <Text style={{ marginTop: -8, fontSize: 14, marginRight: 15 }}>{item.title}</Text>
       </div>
 
       <Text style={{ fontSize: 14, marginTop: -8 }}>
@@ -77,7 +77,7 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
 
 export const Timeline: React.FC<Props> = ({ items }) => {
   return (
-    <div style={{ width: 350 }}>
+    <div style={{ maxWidth: 350, width: 'auto' }}>
       {items.map((x, i) => (
         <TimelineItem item={x} key={i} />
       ))}
