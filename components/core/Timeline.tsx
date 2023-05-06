@@ -65,7 +65,7 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
         <Text style={{ marginTop: -8, fontSize: 14, marginRight: 15 }}>{item.title}</Text>
       </div>
 
-      <Text style={{ fontSize: 14, marginTop: -8 }}>
+      <Text style={{ fontSize: 14, marginTop: -8, whiteSpace: 'nowrap' }}>
         <strong>
           {formatDateTime(item.startTime)}
           {item.endTime ? <> - {formatDateTime(item.endTime)}</> : null}
