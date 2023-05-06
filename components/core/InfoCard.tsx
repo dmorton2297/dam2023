@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import { SubHeader } from "./SubHeader";
 
 export const InfoCard: React.FC<{
-  children: React.ReactNode | React.ReactNode[];
+  children?: React.ReactNode | React.ReactNode[];
   title: string;
   largeTitle?: boolean;
   open?: boolean;
