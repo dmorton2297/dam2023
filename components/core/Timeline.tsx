@@ -29,7 +29,6 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
             style={{
               height: 10,
               width: 10,
-              borderRadius: 100,
               backgroundColor: itemIsComplete ? "green" : "unset",
               outline: "2px solid green",
             }}
@@ -49,7 +48,6 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
                 style={{
                   height: 10,
                   width: 10,
-                  borderRadius: 100,
                   outline: "2px solid rgba(52, 172, 224, 1)",
                 }}
               />
@@ -64,10 +62,10 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
             }}
           />
         </div>
-        <Text style={{ marginTop: -6, fontSize: 16 }}>{item.title}</Text>
+        <Text style={{ marginTop: -8, fontSize: 14 }}>{item.title}</Text>
       </div>
 
-      <Text style={{ fontSize: 16, marginTop: -6 }}>
+      <Text style={{ fontSize: 14, marginTop: -8 }}>
         <strong>
           {formatDateTime(item.startTime)}
           {item.endTime ? <> - {formatDateTime(item.endTime)}</> : null}
@@ -79,7 +77,7 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
 
 export const Timeline: React.FC<Props> = ({ items }) => {
   return (
-    <div style={{ width: 385 }}>
+    <div style={{ width: 350 }}>
       {items.map((x, i) => (
         <TimelineItem item={x} key={i} />
       ))}
