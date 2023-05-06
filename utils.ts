@@ -20,7 +20,5 @@ export const percentageComplete = (
   if (timeElapsedSinceStartAndCurrent <= 0) return 0;
   const differenceMsBetweenBounds =
     endDateTime?.getTime() - startDateTime?.getTime();
-  console.log('Since start: ', timeElapsedSinceStartAndCurrent)
-  console.log('Diff in bounds: ', differenceMsBetweenBounds)
   return timeElapsedSinceStartAndCurrent / differenceMsBetweenBounds
 };

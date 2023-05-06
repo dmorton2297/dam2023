@@ -19,8 +19,8 @@ interface Props {
 const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
   const percentComplete = percentageComplete(item.startTime, item.endTime);
   const itemIsComplete = percentComplete > 0;
-  const progressHeight = 50 * percentComplete;
-  const remainingHeight = 50 * (1 - percentComplete);
+  const progressHeight = 40 * percentComplete;
+  const remainingHeight = 40 * (1 - percentComplete);
   return (
     <div key={item.title} className="flex justify-between">
       <div className="flex gap-4">
@@ -29,15 +29,15 @@ const TimelineItem: React.FC<{ item: TimelineItem }> = ({ item }) => {
             style={{
               height: 10,
               width: 10,
-              backgroundColor: itemIsComplete ? "green" : "unset",
-              outline: "2px solid green",
+              backgroundColor: itemIsComplete ? "rgba(135, 157, 186)" : "unset",
+              outline: "2px solid rgba(135, 157, 186)",
             }}
           />
           <div
             style={{
               width: 2,
               height: progressHeight - 6,
-              backgroundColor: "green",
+              backgroundColor: "rgba(135, 157, 186)",
               marginLeft: 4,
             }}
           />
