@@ -2,18 +2,28 @@ import { TimelineItem } from "./components/core/Timeline";
 
 export const TIMELINE_DATA: TimelineItem[] = [
     {
-        title: 'Hair and Makeup begin',
+        title: 'Girls hair and makeup',
         startTime: new Date('2023-05-13T08:30:00-05:00'),
         endTime: new Date('2023-05-13T12:00:00-05:00')
     },
     {
-        title: 'Girls lunch',
+        title: 'Lunch',
         startTime: new Date('2023-05-13T12:00:00-05:00'),
         endTime: new Date('2023-05-13T13:00:00-05:00')
     },
     {
+        title: 'Guys arrive at Dan\'s',
+        startTime: new Date('2023-05-13T12:00:00-05:00'),
+        endTime: new Date('2023-05-13T12:00:00-05:00'),
+    },
+    {
         title: 'Girls photo shoot',
         startTime: new Date('2023-05-13T13:00:00-05:00'),
+        endTime: new Date('2023-05-13T14:00-05:00')
+    },
+    {
+        title: 'Guys head to Swishotel',
+        startTime: new Date('2023-05-13T13:45:00-05:00'),
         endTime: new Date('2023-05-13T14:00-05:00')
     },
     {

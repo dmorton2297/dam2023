@@ -34,7 +34,9 @@ export const Itinerary = () => {
           </InfoCard>
         </div>
         <div className=" flex w-full justify-center">
-          <Timeline items={TIMELINE_DATA} />
+          <div>
+            <Timeline items={TIMELINE_DATA} />
+          </div>
         </div>
       </>
     </Page>
