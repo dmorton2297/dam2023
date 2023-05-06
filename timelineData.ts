@@ -7,14 +7,14 @@ export const TIMELINE_DATA: TimelineItem[] = [
         endTime: new Date('2023-05-13T12:00:00-05:00')
     },
     {
-        title: 'Lunch',
-        startTime: new Date('2023-05-13T12:00:00-05:00'),
-        endTime: new Date('2023-05-13T13:00:00-05:00')
-    },
-    {
         title: 'Guys arrive at Dan\'s',
         startTime: new Date('2023-05-13T12:00:00-05:00'),
         endTime: new Date('2023-05-13T12:00:00-05:00'),
+    },
+    {
+        title: 'Lunch',
+        startTime: new Date('2023-05-13T12:00:00-05:00'),
+        endTime: new Date('2023-05-13T13:00:00-05:00')
     },
     {
         title: 'Girls photo shoot',
