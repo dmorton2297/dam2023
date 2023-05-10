@@ -1,10 +1,10 @@
-import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 
 const CURRENT_MOMENT_OVERRIDE = null
 
 export const formatDateTime = (dateTime?: Date) => {
   if (!dateTime) return null;
-  return format(dateTime, "h:mm aaa");
+  return formatInTimeZone(dateTime, 'America/Chicago', "h:mm aaa",);
 };
 
 export const percentageComplete = (

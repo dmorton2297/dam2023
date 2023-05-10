@@ -14,15 +14,10 @@ export const TIMELINE_DATA: TimelineItem[] = [
     {
         title: 'Lunch',
         startTime: new Date('2023-05-13T12:00:00-05:00'),
-        endTime: new Date('2023-05-13T13:00:00-05:00')
+        endTime: new Date('2023-05-13T13:45-05:00')
     },
     {
-        title: 'Girls photo shoot',
-        startTime: new Date('2023-05-13T13:00:00-05:00'),
-        endTime: new Date('2023-05-13T14:00-05:00')
-    },
-    {
-        title: 'Guys head to Swishotel',
+        title: 'Guys arrive at Swissotel',
         startTime: new Date('2023-05-13T13:45:00-05:00'),
         endTime: new Date('2023-05-13T14:00-05:00')
     },
@@ -54,63 +49,57 @@ export const TIMELINE_DATA: TimelineItem[] = [
     {
         title: 'Cocktail hour with appetizers',
         startTime: new Date('2023-05-13T18:00:00-05:00'),
-        endTime: new Date('2023-05-13T19:20:00-05:00')
+        endTime: new Date('2023-05-13T19:30:00-05:00')
     },
     {
         title: 'Dinner starts',
-        startTime: new Date('2023-05-13T19:20:00-05:00'),
-        endTime: new Date('2023-05-13T19:20:00-05:00'),
-    },
-    {
-        title: 'Father of the groom toast',
-        startTime: new Date('2023-05-13T19:30:00-05:00'),
-        endTime: new Date('2023-05-13T19:35:00-05:00'),
-
-    },
-    {
-        title: 'Father of the bride toast',
         startTime: new Date('2023-05-13T19:35:00-05:00'),
         endTime: new Date('2023-05-13T19:40:00-05:00'),
     },
     {
-        title: 'Guests eat main course',
-        startTime: new Date('2023-05-13T19:40:40-05:00'),
-        endTime: new Date('2023-05-13T20:10:10-05:00'),
+        title: 'Father of the bride toast',
+        startTime: new Date('2023-05-13T19:50:00-05:00'),
+        endTime: new Date('2023-05-13T19:55:00-05:00'),
     },
     {
-        title: 'Dinner ends',
-        startTime: new Date('2023-05-13T20:10:40-05:00'),
-        endTime: new Date('2023-05-13T20:10:40-05:00'),
+        title: 'Guests eat main course',
+        startTime: new Date('2023-05-13T19:55:40-05:00'),
+        endTime: new Date('2023-05-13T20:20:15-05:00'),
     },
     {
         title: 'Best man speech',
-        startTime: new Date('2023-05-13T20:10:10-05:00'),
-        endTime: new Date('2023-05-13T20:15:10-05:00')
+        startTime: new Date('2023-05-13T20:15:10-05:00'),
+        endTime: new Date('2023-05-13T20:18:10-05:00')
     },
     {
         title: 'Maid of honor speeach',
-        startTime: new Date('2023-05-13T20:15:10-05:00'),
-        endTime: new Date('2023-05-13T20:20:10-05:00')
+        startTime: new Date('2023-05-13T20:18:10-05:00'),
+        endTime: new Date('2023-05-13T20:21:10-05:00')
     },
     {
         title: 'First dance',
-        startTime: new Date('2023-05-13T20:25:10-05:00'),
-        endTime: new Date('2023-05-13T20:27:10-05:00')
+        startTime: new Date('2023-05-13T20:21:10-05:00'),
+        endTime: new Date('2023-05-13T20:23:10-05:00')
     },
     {
         title: 'Father & Daughter dance',
-        startTime: new Date('2023-05-13T20:27:10-05:00'),
-        endTime: new Date('2023-05-13T20:30:10-05:00')
+        startTime: new Date('2023-05-13T20:23:10-05:00'),
+        endTime: new Date('2023-05-13T20:25:10-05:00')
     },
     {
         title: 'Mother & Son dance',
-        startTime: new Date('2023-05-13T20:30:10-05:00'),
-        endTime: new Date('2023-05-13T20:33:10-05:00')
+        startTime: new Date('2023-05-13T20:25:10-05:00'),
+        endTime: new Date('2023-05-13T20:28:10-05:00')
     },
     {
         title: 'Party 🎉',
-        startTime: new Date('2023-05-13T20:33:10-05:00'),
+        startTime: new Date('2023-05-13T20:28:10-05:00'),
         endTime: new Date('2023-05-20T24:00:00-05:00'),
+    },
+    {
+        title: 'Dessert is served ',
+        startTime: new Date('2023-05-13T21:00:00-05:00'),
+        endTime: new Date('2023-05-20T21:00:00-05:00'),
     },
     {
         title: 'Cash bar starts',

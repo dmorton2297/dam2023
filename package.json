@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.2.1",
-    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
     "formik": "^2.2.9",
     "gsap": "^3.10.4",
     "mongodb": "^4.12.1",
