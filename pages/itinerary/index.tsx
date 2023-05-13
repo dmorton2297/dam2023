@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Page } from "../../components/Page";
 import { Header } from "../../components/core/Header";
 import { InfoCard } from "../../components/core/InfoCard";
@@ -9,6 +9,16 @@ import Timeline from "../../components/core/Timeline";
 import { TIMELINE_DATA } from "../../timelineData";
 
 export const Itinerary = () => {
+
+  const [timelineData, setTimelineData] = useState(TIMELINE_DATA)
+  const [key, setKey] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => setKey(Math.random() * 1000), 5000)
+
+    return () => clearInterval(interval)
+  })
+
   return (
     <Page
       title="Timeline"
@@ -35,7 +45,7 @@ export const Itinerary = () => {
         </div>
         <div className=" flex w-full justify-center">
           <div>
-            <Timeline items={TIMELINE_DATA} />
+            <Timeline key={key} items={timelineData} />
           </div>
         </div>
       </>

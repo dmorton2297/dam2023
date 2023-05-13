@@ -217,9 +217,15 @@ const Event: NextPage = () => {
                 marginBottom: 20,
               }}
               onClick={() => {
-                const headers = ["Name", "Attending", "RSVP ID"];
+                const headers = ["Name", "Attending", "RSVP ID", "Phone number","Note"];
                 const data =
-                  attendees?.map((x) => [x.name, x.attending, x.rsvpId, x.phoneNumber]) || [];
+                  attendees?.map((x) => [
+                    x.name,
+                    x.attending,
+                    x.rsvpId,
+                    x.phoneNumber,
+                    x.note?.replaceAll(',', '-'),
+                  ]) || [];
                 let csvContent = "data:text/csv;charset=utf-8,";
                 [headers, ...data].forEach((d) => {
                   let row = d.join(",");
@@ -237,7 +243,10 @@ const Event: NextPage = () => {
                   <strong>{a.name}</strong> is{" "}
                   <strong>{a.attending ? "ATTENDING" : "NOT ATTENDING"}</strong>{" "}
                   {a.phoneNumber ? a.phoneNumber : ""} (RSVP ID: {a.rsvpId})
+                  <br />
                 </Text>
+                <Text style={{ width: '300px !important' }}> Note: {a.note}</Text>
+
               </div>
             ))}
           </>

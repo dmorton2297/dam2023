@@ -11,6 +11,7 @@ export interface IAttendee {
   attending: boolean;
   rsvpId?: string;
   phoneNumber?: string;
+  note?: string;
 }
 
 export interface IRSVP {
@@ -115,7 +116,7 @@ export const getAllAttendeeData = async () => {
 
   const results: IAttendee[] = [];
   await cursor.forEach((x: IRSVP) => {
-    results.push(...x.attendees.map((a) => ({ ...a, rsvpId: x.rsvpId })));
+    results.push(...x.attendees.map((a) => ({ ...a, rsvpId: x.rsvpId, note: x.noteToCouple })));
     return true;
   });
   dbClient.close();
