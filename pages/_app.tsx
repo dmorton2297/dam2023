@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         fontSize: 26,
       }}
     >
-      This page has been taken down for contruction 👷
+      This page has been taken down 👷
     </h1>
   );
 }
