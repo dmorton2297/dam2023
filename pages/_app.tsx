@@ -10,11 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         position: "absolute",
         left: "calc(50% - 150px)",
         top: "40%",
-        width: 300,
+        width: 330,
         fontSize: 26,
       }}
     >
-      This page has been taken down 👷
+      👷👷  This page has been taken down for construction
     </h1>
   );
 }
