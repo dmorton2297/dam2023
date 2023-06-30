@@ -98,7 +98,7 @@ const HomeContent: React.FC = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowWidth < 750 ? "url(1-skinny.jpeg)" : "url(1.jpeg)",
+              windowWidth < 750 ? "url(1-skinny.png)" : "url(1.png)",
             backgroundSize: "cover",
             boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.2)",
           }}
@@ -108,7 +108,7 @@ const HomeContent: React.FC = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowWidth < 750 ? "url(2-skinny.jpeg)" : "url(2.jpeg)",
+              windowWidth < 750 ? "url(2-skinny.png)" : "url(2.png)",
             backgroundSize: "cover",
             boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.2)",
           }}
@@ -118,7 +118,7 @@ const HomeContent: React.FC = () => {
           style={{
             scrollSnapAlign: "start",
             background:
-              windowWidth < 750 ? "url(3-skinny.jpeg)" : "url(3.jpeg)",
+              windowWidth < 750 ? "url(3-skinny.png)" : "url(3.png)",
             backgroundSize: "cover",
             boxShadow: "inset 0 0 0 100000px rgba(0,0,0,0.2)",
 

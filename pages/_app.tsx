@@ -3,8 +3,8 @@ import "tailwindcss/tailwind.css";
 import "./globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  //  return <Component {...pageProps} />
-  return (
+  return <Component {...pageProps} />
+  /* return (
     <h1
       style={{
         position: "absolute",
@@ -16,6 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       👷👷  This page has been taken down for construction
     </h1>
-  );
+  ); */
 }
 export default MyApp;
